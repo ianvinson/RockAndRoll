@@ -1,0 +1,295 @@
+fileFormatVersion: 2
+guid: 93c8f9750591c8a48ab7c86008de3d7c
+timeCreated: 1505769460
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Body_CTRL
+    100002: Head
+    100004: HeadTop
+    100006: joint1
+    100008: L_Antenna
+    100010: L_AntennaBase
+    100012: L_AntennaTip
+    100014: L_Arm
+    100016: L_Elbow
+    100018: L_Eye
+    100020: L_EyeSocket
+    100022: L_Hand
+    100024: L_Index01
+    100026: L_Index02
+    100028: L_Index03
+    100030: L_Pinky01
+    100032: L_Pinky02
+    100034: L_Pinky03
+    100036: L_Shoulder
+    100038: L_Thumb01
+    100040: L_Thumb02
+    100042: L_Thumb03
+    100044: R_Antenna
+    100046: R_AntennaBase
+    100048: R_AntennaTip
+    100050: R_Arm
+    100052: R_Elbow
+    100054: R_Eye
+    100056: R_EyeSocket
+    100058: R_Hand
+    100060: R_Index01
+    100062: R_Index02
+    100064: R_Index03
+    100066: R_Pinky01
+    100068: R_Pinky02
+    100070: R_Pinky03
+    100072: R_Shoulder
+    100074: R_Thumb01
+    100076: R_Thumb02
+    100078: R_Thumb03
+    100080: Root
+    100082: Root_CTRL
+    100084: //RootNode
+    100086: ThrusterFront
+    100088: ThrusterFrontVents
+    100090: ThrusterReadVents
+    100092: ThrusterRear
+    400000: Body_CTRL
+    400002: Head
+    400004: HeadTop
+    400006: joint1
+    400008: L_Antenna
+    400010: L_AntennaBase
+    400012: L_AntennaTip
+    400014: L_Arm
+    400016: L_Elbow
+    400018: L_Eye
+    400020: L_EyeSocket
+    400022: L_Hand
+    400024: L_Index01
+    400026: L_Index02
+    400028: L_Index03
+    400030: L_Pinky01
+    400032: L_Pinky02
+    400034: L_Pinky03
+    400036: L_Shoulder
+    400038: L_Thumb01
+    400040: L_Thumb02
+    400042: L_Thumb03
+    400044: R_Antenna
+    400046: R_AntennaBase
+    400048: R_AntennaTip
+    400050: R_Arm
+    400052: R_Elbow
+    400054: R_Eye
+    400056: R_EyeSocket
+    400058: R_Hand
+    400060: R_Index01
+    400062: R_Index02
+    400064: R_Index03
+    400066: R_Pinky01
+    400068: R_Pinky02
+    400070: R_Pinky03
+    400072: R_Shoulder
+    400074: R_Thumb01
+    400076: R_Thumb02
+    400078: R_Thumb03
+    400080: Root
+    400082: Root_CTRL
+    400084: //RootNode
+    400086: ThrusterFront
+    400088: ThrusterFrontVents
+    400090: ThrusterReadVents
+    400092: ThrusterRear
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Head
+        weight: 1
+      - path: Root/Head/HeadTop
+        weight: 1
+      - path: Root/Head/HeadTop/L_AntennaBase
+        weight: 1
+      - path: Root/Head/HeadTop/L_AntennaBase/L_Antenna
+        weight: 1
+      - path: Root/Head/HeadTop/L_AntennaBase/L_Antenna/L_AntennaTip
+        weight: 1
+      - path: Root/Head/HeadTop/R_AntennaBase
+        weight: 1
+      - path: Root/Head/HeadTop/R_AntennaBase/R_Antenna
+        weight: 1
+      - path: Root/Head/HeadTop/R_AntennaBase/R_Antenna/R_AntennaTip
+        weight: 1
+      - path: Root/Head/L_EyeSocket
+        weight: 1
+      - path: Root/Head/L_EyeSocket/L_Eye
+        weight: 1
+      - path: Root/Head/R_EyeSocket
+        weight: 1
+      - path: Root/Head/R_EyeSocket/R_Eye
+        weight: 1
+      - path: Root/joint1
+        weight: 1
+      - path: Root/joint1/ThrusterFront
+        weight: 1
+      - path: Root/joint1/ThrusterFront/ThrusterFrontVents
+        weight: 1
+      - path: Root/joint1/ThrusterRear
+        weight: 1
+      - path: Root/joint1/ThrusterRear/ThrusterReadVents
+        weight: 1
+      - path: Root/L_Arm
+        weight: 1
+      - path: Root/L_Arm/L_Shoulder
+        weight: 1
+      - path: Root/L_Arm/L_Shoulder/L_Elbow
+        weight: 1
+      - path: Root/L_Arm/L_Shoulder/L_Elbow/L_Hand
+        weight: 1
+      - path: Root/L_Arm/L_Shoulder/L_Elbow/L_Hand/L_Index01
+        weight: 1
+      - path: Root/L_Arm/L_Shoulder/L_Elbow/L_Hand/L_Index01/L_Index02
+        weight: 1
+      - path: Root/L_Arm/L_Shoulder/L_Elbow/L_Hand/L_Index01/L_Index02/L_Index03
+        weight: 1
+      - path: Root/L_Arm/L_Shoulder/L_Elbow/L_Hand/L_Pinky01
+        weight: 1
+      - path: Root/L_Arm/L_Shoulder/L_Elbow/L_Hand/L_Pinky01/L_Pinky02
+        weight: 1
+      - path: Root/L_Arm/L_Shoulder/L_Elbow/L_Hand/L_Pinky01/L_Pinky02/L_Pinky03
+        weight: 1
+      - path: Root/L_Arm/L_Shoulder/L_Elbow/L_Hand/L_Thumb01
+        weight: 1
+      - path: Root/L_Arm/L_Shoulder/L_Elbow/L_Hand/L_Thumb01/L_Thumb02
+        weight: 1
+      - path: Root/L_Arm/L_Shoulder/L_Elbow/L_Hand/L_Thumb01/L_Thumb02/L_Thumb03
+        weight: 1
+      - path: Root/R_Arm
+        weight: 1
+      - path: Root/R_Arm/R_Shoulder
+        weight: 1
+      - path: Root/R_Arm/R_Shoulder/R_Elbow
+        weight: 1
+      - path: Root/R_Arm/R_Shoulder/R_Elbow/R_Hand
+        weight: 1
+      - path: Root/R_Arm/R_Shoulder/R_Elbow/R_Hand/R_Index01
+        weight: 1
+      - path: Root/R_Arm/R_Shoulder/R_Elbow/R_Hand/R_Index01/R_Index02
+        weight: 1
+      - path: Root/R_Arm/R_Shoulder/R_Elbow/R_Hand/R_Index01/R_Index02/R_Index03
+        weight: 1
+      - path: Root/R_Arm/R_Shoulder/R_Elbow/R_Hand/R_Pinky01
+        weight: 1
+      - path: Root/R_Arm/R_Shoulder/R_Elbow/R_Hand/R_Pinky01/R_Pinky02
+        weight: 1
+      - path: Root/R_Arm/R_Shoulder/R_Elbow/R_Hand/R_Pinky01/R_Pinky02/R_Pinky03
+        weight: 1
+      - path: Root/R_Arm/R_Shoulder/R_Elbow/R_Hand/R_Thumb01
+        weight: 1
+      - path: Root/R_Arm/R_Shoulder/R_Elbow/R_Hand/R_Thumb01/R_Thumb02
+        weight: 1
+      - path: Root/R_Arm/R_Shoulder/R_Elbow/R_Hand/R_Thumb01/R_Thumb02/R_Thumb03
+        weight: 1
+      - path: Root_CTRL
+        weight: 1
+      - path: Root_CTRL/Body_CTRL
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
