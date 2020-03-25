@@ -12,6 +12,5 @@ public class MultiplierDisplay : MonoBehaviour
     void Update()
     {
         multiplierText.text = player.GetComponent<PlayerControllerRewired>().multiplier.ToString() + "*";
-
     }
 }
