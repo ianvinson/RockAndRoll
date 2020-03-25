@@ -8,6 +8,8 @@ TagManager:
   - DashAttackHitBox
   - BlockHitBox
   - Projectile
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX
