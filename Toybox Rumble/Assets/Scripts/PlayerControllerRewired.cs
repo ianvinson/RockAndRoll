@@ -23,9 +23,12 @@ public class PlayerControllerRewired : MonoBehaviour
     private int countFramesDA;
     private int countFramesMultiplier;
     private bool blockInput;
-    private int countBlockFrames;
+    private int countThrowFrames;
     private bool shootInput;
     private bool hasDashAttacked;
+    private bool otherAnimIsPlaying;
+    private bool isThrowing;
+    private bool currentlyThrowing;
 
     //Gameplay Stuff
     public int multiplier;
@@ -44,6 +47,7 @@ public class PlayerControllerRewired : MonoBehaviour
     public int MULTIPLIERDMG = 200;
     public int PROJECTILEDMG = 200;
     public float shootForce = 5000f;
+    public Animator anim;
 
     private void Awake()
     {
@@ -55,12 +59,8 @@ public class PlayerControllerRewired : MonoBehaviour
         //get the CharacterController
         cc = GetComponent<CharacterController>();
         rightStickActive = false;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
+        //set animator
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -73,11 +73,12 @@ public class PlayerControllerRewired : MonoBehaviour
         if (hasDashed == true)
         {
             countFramesDash++;
-            if (countFramesDash == 35)
+            if (countFramesDash == 31)
             {
                 hasDashed = false;
                 countFramesDash = 0;
                 Debug.Log(">DASH READY\t" + hasDashed);
+                otherAnimIsPlaying = false;
             }
         }
 
@@ -85,12 +86,15 @@ public class PlayerControllerRewired : MonoBehaviour
         if (dashAttackCollider.activeSelf == true)
         {
             countFramesDA++;
+            currentlyThrowing = true;
             if (countFramesDA == 100)
             {
                 hasDashAttacked = false;
                 dashAttackCollider.SetActive(false);
                 countFramesDA = 0;
                 Debug.Log(">DA READY\t" + dashAttackCollider.activeSelf);
+                otherAnimIsPlaying = false;
+                currentlyThrowing = false;
             }
         }
 
@@ -98,11 +102,25 @@ public class PlayerControllerRewired : MonoBehaviour
         if (multiplierCollider.activeSelf == true)
         {
             countFramesMultiplier++;
-            if (countFramesMultiplier == 15)
+            if (countFramesMultiplier == 18)
             {
                 multiplierCollider.SetActive(false);
                 countFramesMultiplier = 0;
                 Debug.Log(">Melee READY\t" + multiplierCollider.activeSelf);
+                otherAnimIsPlaying = false;
+            }
+        }
+
+        if(isThrowing == true)
+        {
+            countThrowFrames++;
+            currentlyThrowing = true;
+            if(countThrowFrames == 40)
+            {
+                countThrowFrames = 0;
+                otherAnimIsPlaying = false;
+                isThrowing = false;
+                currentlyThrowing = false;
             }
         }
 
@@ -142,8 +160,16 @@ public class PlayerControllerRewired : MonoBehaviour
 
         if (other.tag == "Projectile")
         {
-            multiplier += PROJECTILEDMG;
-            Debug.Log(">PROJECTILE: " + multiplier);
+            if (blockInput)
+            {
+                multiplier += 0;
+                Debug.Log("Block is registered");
+            }
+            else
+            {
+                multiplier += PROJECTILEDMG;
+                Debug.Log(">PROJECTILE: " + multiplier);
+            }
         }
     }
 
@@ -204,6 +230,10 @@ public class PlayerControllerRewired : MonoBehaviour
                 Vector3 v = new Vector3(moveHorizontal, 0, moveVertical);
                 Quaternion q = Quaternion.LookRotation(v, Vector2.up);
                 playerLook = Quaternion.RotateTowards(q, transform.rotation, rotateSpeed * Time.deltaTime);
+                if (!otherAnimIsPlaying)
+                {
+                    anim.Play("Walk_Skeleton");
+                }
             }
             Vector3 newPosition = new Vector3(moveHorizontal, 0, moveVertical);
             Quaternion targetRoatation = Quaternion.LookRotation(newPosition, Vector2.up);
@@ -224,6 +254,10 @@ public class PlayerControllerRewired : MonoBehaviour
                 Vector3 v = new Vector3(lookHorizontal, 0, lookVertical);
                 Quaternion q = Quaternion.LookRotation(v, Vector2.up);
                 playerLook = Quaternion.RotateTowards(q, transform.rotation, rotateSpeed * Time.deltaTime);
+                if (!otherAnimIsPlaying)
+                {
+                    anim.Play("Walk_Skeleton");
+                }
             }
             Vector3 lookDirection = new Vector3(lookHorizontal, 0, lookVertical);
             Quaternion targetRoatation = Quaternion.LookRotation(lookDirection, Vector2.up);
@@ -244,6 +278,8 @@ public class PlayerControllerRewired : MonoBehaviour
                 Vector3 dash = new Vector3(moveHorizontal, 0, moveVertical);
                 rb.AddForce(dash * dashForce);
                 hasDashed = true;
+                anim.Play("Dodge_Skeleton");
+                otherAnimIsPlaying = true;
             }
         }
 
@@ -262,6 +298,8 @@ public class PlayerControllerRewired : MonoBehaviour
                 rb.AddForce(dash * dashAttackForce);
                 dashAttackCollider.SetActive(true);
                 hasDashAttacked = true;
+                anim.Play("Push_Skeleton");
+                otherAnimIsPlaying = true;
             }
         }
 
@@ -271,6 +309,8 @@ public class PlayerControllerRewired : MonoBehaviour
             if (multiplierCollider.activeSelf == false)
             {
                 multiplierCollider.SetActive(true);
+                anim.Play("Punch_Skeleton");
+                otherAnimIsPlaying = true;
             }
         }
 
@@ -291,9 +331,15 @@ public class PlayerControllerRewired : MonoBehaviour
         }
 
         //Process Shoot
-        if (shootInput)
+        if (!currentlyThrowing)
         {
-            Instantiate(projectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
+            if (shootInput)
+            {
+                anim.Play("Throw_Skeleton");
+                otherAnimIsPlaying = true;
+                isThrowing = true;
+                Instantiate(projectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
+            }
         }
     }
 }

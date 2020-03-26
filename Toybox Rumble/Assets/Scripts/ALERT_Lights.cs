@@ -14,7 +14,7 @@ public class ALERT_Lights : MonoBehaviour
     {
         countFrames++;
         //lava raises and stays for this long
-        if (countFrames >= 1725 && countFrames <= 2150)
+        if (countFrames >= 1725 && countFrames <= 2150 && hasRaised == false)
         {
             if (countFrames % 10 == 0)
             {
@@ -33,7 +33,7 @@ public class ALERT_Lights : MonoBehaviour
                 text.SetActive(false);
             }
         }
-        if (countFrames == 2150)
+        if (countFrames == 2150 && hasRaised == false)
         {
             countFrames = 0;
             L1.SetActive(false);
@@ -41,6 +41,14 @@ public class ALERT_Lights : MonoBehaviour
             L3.SetActive(false);
             L4.SetActive(false);
             text.SetActive(false);
+            hasRaised = true;
+        }
+        
+        //Keeps it lined up with the lava
+        if (countFrames == 450 && hasRaised == true)
+        {
+            countFrames = 0;
+            hasRaised = false;
         }
     }
 }
