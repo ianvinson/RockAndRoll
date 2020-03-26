@@ -17,8 +17,8 @@ public class DetermineWhoWins : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        P1StockCount = resetHitBox.GetComponent<ResetScript>().countStocksP1;
-        P2StockCount = resetHitBox.GetComponent<ResetScript>().countStocksP2;
+        P1StockCount = resetHitBox.GetComponent<ResetScript>().P1StockCount;
+        P2StockCount = resetHitBox.GetComponent<ResetScript>().P2StockCount;
 
         if(P1StockCount == 0)
         {

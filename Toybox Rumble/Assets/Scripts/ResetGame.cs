@@ -42,11 +42,11 @@ public class ResetGame : MonoBehaviour
         P1S_1.SetActive(true);
         P1S_2.SetActive(true);
         P1S_3.SetActive(true);
-        gameLogic.GetComponent<ResetScript>().countStocksP1 = 3;
+        gameLogic.GetComponent<ResetScript>().P1StockCount = 3;
         //P2
         P2S_1.SetActive(true);
         P2S_2.SetActive(true);
         P2S_3.SetActive(true);
-        gameLogic.GetComponent<ResetScript>().countStocksP2 = 3;
+        gameLogic.GetComponent<ResetScript>().P2StockCount = 3;
     }
 }
