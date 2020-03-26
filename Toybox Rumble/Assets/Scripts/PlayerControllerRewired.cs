@@ -125,6 +125,7 @@ public class PlayerControllerRewired : MonoBehaviour
             Vector3 vectorOfEnemy = new Vector3(moveHorizontalPO, 0, moveVerticalPO);
             rb.AddForce(vectorOfEnemy * multiplier);
         }
+
         if (other.tag == "MultiplierHitBox")
         {
             if (blockInput)
@@ -143,6 +144,14 @@ public class PlayerControllerRewired : MonoBehaviour
         {
             multiplier += PROJECTILEDMG;
             Debug.Log(">PROJECTILE: " + multiplier);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "lavaHitBox")
+        {
+            multiplier += 1;
         }
     }
 

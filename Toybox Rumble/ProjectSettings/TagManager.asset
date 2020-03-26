@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - Player1
   - Player2
+  - lavaHitBox
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Glow
   - 
   - 
   - 

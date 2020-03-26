@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 1700928158}
   - component: {fileID: 1700928159}
   m_Layer: 5
-  m_Name: Playground Button
+  m_Name: Lava Time! Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
