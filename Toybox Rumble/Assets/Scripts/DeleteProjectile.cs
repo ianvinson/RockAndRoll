@@ -8,11 +8,12 @@ public class DeleteProjectile : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         countFrames++;
         if(countFrames == 100)
         {
             GameObject.Destroy(this.gameObject);
         }
     }
+
 }

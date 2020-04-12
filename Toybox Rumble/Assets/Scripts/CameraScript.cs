@@ -7,17 +7,27 @@ public class CameraScript : MonoBehaviour
     public GameObject Player1;
     public GameObject Player2;
     public Camera thisCam;
+    public float shakeAmountHit;
+    public float shakeAmountDAHit;
+    private float cameraShakeLast;
+    public float cameraShakeLastStart;
+    public bool hasHit;
 
     // Start is called before the first frame update
     void Start()
     {
         thisCam.transform.position = new Vector3(-11.59995f, 73.31589f, -23.76174f);
+        cameraShakeLast = cameraShakeLastStart;
     }
 
     // Update is called once per frame
     void Update()
     {
         FixedCameraFollowSmooth(thisCam, Player1.transform, Player2.transform);
+        if (hasHit)
+        {
+            cameraShakeLast -= Time.deltaTime;
+        }
     }
 
     //THE FOLLOWING CODE IS PROVIDED BY: TreyH @ https://answers.unity.com/questions/1142089/moving-camera-with-2-players.html
@@ -59,6 +69,52 @@ public class CameraScript : MonoBehaviour
         }
         // You specified to use MoveTowards instead of Slerp
         cam.transform.position = Vector3.Slerp(cam.transform.position, cameraDestination, followTimeDelta);
+
+        //if either player is hit, camera shake
+        if(Player1.GetComponent<PlayerControllerRewired>().playerHit || Player2.GetComponent<PlayerControllerRewired>().playerHit)
+        {
+            hasHit = true;
+            cam.transform.localPosition = cam.transform.position + Random.insideUnitSphere * shakeAmountHit;
+            if (cameraShakeLast <= 0)
+            {
+                Player1.GetComponent<PlayerControllerRewired>().playerHit = false;
+                Player2.GetComponent<PlayerControllerRewired>().playerHit = false;
+                cameraShakeLast = cameraShakeLastStart;
+                hasHit = false;
+            }
+        }
+        //if either player is hit with a dash attack, hella screen shake
+        if (Player1.GetComponent<PlayerControllerRewired>().playerHitDA || Player2.GetComponent<PlayerControllerRewired>().playerHitDA)
+        {
+            hasHit = true;
+            if (Player1.GetComponent<PlayerControllerRewired>().playerHitDA)
+            {
+                float stableShakeP1 = Player1.GetComponent<PlayerControllerRewired>().multiplier / shakeAmountDAHit;
+                Debug.Log(stableShakeP1);
+                if (stableShakeP1 >= 150)
+                {
+                    stableShakeP1 = 150;
+                }
+                cam.transform.localPosition = cam.transform.position + Random.insideUnitSphere * stableShakeP1;
+            }
+            if(Player2.GetComponent<PlayerControllerRewired>().playerHitDA)
+            {
+                float stableShakeP2 = Player2.GetComponent<PlayerControllerRewired>().multiplier / shakeAmountDAHit;
+                Debug.Log(stableShakeP2);
+                if (stableShakeP2 >= 150)
+                {
+                    stableShakeP2 = 150;
+                }
+                cam.transform.localPosition = cam.transform.position + Random.insideUnitSphere * stableShakeP2;
+            }
+            if (cameraShakeLast <= 0)
+            {
+                Player1.GetComponent<PlayerControllerRewired>().playerHitDA = false;
+                Player2.GetComponent<PlayerControllerRewired>().playerHitDA = false;
+                cameraShakeLast = cameraShakeLastStart;
+                hasHit = false;
+            }
+        }
 
         // Snap when close enough to prevent annoying slerp behavior
         if ((cameraDestination - cam.transform.position).magnitude <= 0.05f)

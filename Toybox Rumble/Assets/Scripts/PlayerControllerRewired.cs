@@ -59,9 +59,12 @@ public class PlayerControllerRewired : MonoBehaviour
     public Animator anim;
     public float startDashTime;
     public float startDashAttackTime;
+    public GameObject daCollisionParticles;
 
     public Coroutine coroutine;
     public GameObject Camera;
+    public bool playerHitDA;
+    public bool playerHit;
 
 
     private void Awake()
@@ -83,6 +86,8 @@ public class PlayerControllerRewired : MonoBehaviour
         canDashAttack = true;
         trailRenderer = GetComponent<TrailRenderer>();
         particleSystem = GetComponent<ParticleSystem>();
+        playerHitDA = false;
+        playerHit = false;
     }
 
     // Update is called once per frame
@@ -102,6 +107,7 @@ public class PlayerControllerRewired : MonoBehaviour
                 rb.velocity = Vector3.zero;
                 otherAnimIsPlaying = false;
                 hasDashed = false;
+                trailRenderer.enabled = false;
                 StartCoroutine(DashWaitTime());
             }
             else
@@ -150,7 +156,7 @@ public class PlayerControllerRewired : MonoBehaviour
         {
             countThrowFrames++;
             currentlyThrowing = true;
-            if (countThrowFrames == 40)
+            if (countThrowFrames == 20)
             {
                 countThrowFrames = 0;
                 otherAnimIsPlaying = false;
@@ -167,6 +173,7 @@ public class PlayerControllerRewired : MonoBehaviour
         }
 
         transform.rotation = playerLook;
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -176,7 +183,9 @@ public class PlayerControllerRewired : MonoBehaviour
             float moveHorizontalPO = playerOther.GetAxis("MoveHorizontal");
             float moveVerticalPO = playerOther.GetAxis("MoveVertical");
             Vector3 vectorOfEnemy = new Vector3(moveHorizontalPO, 0, moveVerticalPO);
-            rb.AddForce(vectorOfEnemy * multiplier * 1.5f);
+            rb.AddForce(vectorOfEnemy * multiplier * 1.25f);
+            playerHitDA = true;
+            StartCoroutine(dashAttackCollisionParticles());
         }
 
         if (other.tag == "MultiplierHitBox")
@@ -191,6 +200,7 @@ public class PlayerControllerRewired : MonoBehaviour
                 multiplier += MULTIPLIERDMG;
             }
             Debug.Log(">MULTIPLIER: " + multiplier);
+            playerHit = true;
         }
 
         if (other.tag == "Projectile")
@@ -205,6 +215,7 @@ public class PlayerControllerRewired : MonoBehaviour
                 multiplier += PROJECTILEDMG;
                 Debug.Log(">PROJECTILE: " + multiplier);
             }
+            playerHit = true;
         }
     }
 
@@ -311,12 +322,12 @@ public class PlayerControllerRewired : MonoBehaviour
                     if (vectorDirection.x == 0 && vectorDirection.z == 0)
                     {
                         Vector3 dashWhileNoInput = this.gameObject.transform.forward;
-                        rb.AddForce(dashWhileNoInput.normalized * dashForce);
+                        rb.velocity = dashWhileNoInput.normalized * dashForce;
                     }
                     else if (moveHorizontal == 0 || moveVertical == 0)
                     {
                         Vector3 dashWhileNoInput = vectorDirection;
-                        rb.AddForce(dashWhileNoInput.normalized * dashForce);
+                        rb.velocity = dashWhileNoInput.normalized * dashForce;
                     }
                     else
                     {
@@ -325,6 +336,7 @@ public class PlayerControllerRewired : MonoBehaviour
                     }
                     hasDashed = true;
                     canDash = false;
+                    trailRenderer.enabled = true;
                     anim.Play("Dodge_Skeleton");
                     otherAnimIsPlaying = true;
                 }
@@ -397,14 +409,21 @@ public class PlayerControllerRewired : MonoBehaviour
 
             yield return new WaitForSeconds(.2f);
 
-            if (tempVertical == 0 || tempHorizontal == 0)
+            if (vectorDirection.x == 0 && vectorDirection.z == 0)
+            {
+                Vector3 dashWhileNoInput = this.gameObject.transform.forward;
+                rb.velocity = dashWhileNoInput.normalized * dashAttackForce;
+            }
+            else if (moveHorizontal == 0 || moveVertical == 0)
             {
                 Vector3 dashWhileNoInput = vectorDirection;
-                rb.AddForce(dashWhileNoInput * dashForce);
+                rb.velocity = dashWhileNoInput.normalized * dashAttackForce;
             }
-
-            Vector3 dash = new Vector3(tempHorizontal, 0, tempVertical);
-            rb.velocity = dash * dashAttackForce;
+            else
+            {
+                Vector3 dash = new Vector3(moveHorizontal, 0, moveVertical);
+                rb.velocity = dash * dashAttackForce;
+            }
             dashAttackCollider.SetActive(true);
             anim.Play("Push_Skeleton");
             otherAnimIsPlaying = true;
@@ -422,15 +441,23 @@ public class PlayerControllerRewired : MonoBehaviour
 
     IEnumerator DashAttackWaitTime()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         canDashAttack = true;
     }
 
     IEnumerator DashWaitTime()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         canDash = true;
     }
 
+    IEnumerator dashAttackCollisionParticles()
+    {
+        daCollisionParticles.transform.position = this.gameObject.transform.position;
+        daCollisionParticles.SetActive(true);
+        daCollisionParticles.GetComponent<ParticleSystem>().Play();
+        yield return new WaitForSeconds(1f);
+        daCollisionParticles.SetActive(false);
+    }
 
 }
