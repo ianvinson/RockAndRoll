@@ -37,6 +37,7 @@ public class PlayerControllerRewired : MonoBehaviour
     private float dashAttackTime;
     private TrailRenderer trailRenderer;
     private ParticleSystem particleSystem;
+    private bool canDashAttack;
 
     //Gameplay Stuff
     public int multiplier;
@@ -79,6 +80,7 @@ public class PlayerControllerRewired : MonoBehaviour
         dashTime = startDashTime;
         dashAttackTime = startDashAttackTime;
         canDash = true;
+        canDashAttack = true;
         trailRenderer = GetComponent<TrailRenderer>();
         particleSystem = GetComponent<ParticleSystem>();
     }
@@ -100,7 +102,7 @@ public class PlayerControllerRewired : MonoBehaviour
                 rb.velocity = Vector3.zero;
                 otherAnimIsPlaying = false;
                 hasDashed = false;
-                canDash = true;
+                StartCoroutine(DashWaitTime());
             }
             else
             {
@@ -118,11 +120,12 @@ public class PlayerControllerRewired : MonoBehaviour
                 moveHorizontal = 0;
                 dashAttackTime = startDashAttackTime;
                 rb.velocity = Vector3.zero;
-                hasDashAttacked = false;
                 dashAttackCollider.SetActive(false);
                 Debug.Log(">DA READY\t" + dashAttackCollider.activeSelf);
                 otherAnimIsPlaying = false;
                 trailRenderer.enabled = false;
+                StartCoroutine(DashAttackEndLag());
+                StartCoroutine(DashAttackWaitTime());
             }
             else
             {
@@ -235,7 +238,7 @@ public class PlayerControllerRewired : MonoBehaviour
 
                     //Dash Input
                     dashInput = player.GetButtonDown("Dash");
-
+                    
                     //DashAttack Input
                     dashAttackInput = player.GetButtonDown("DashAttack");
 
@@ -385,29 +388,49 @@ public class PlayerControllerRewired : MonoBehaviour
         float tempVertical = moveVertical;
         float tempHorizontal = moveHorizontal;
 
-        hasDashAttacked = true;
-
-        moveVertical = 0;
-        moveHorizontal = 0;
-
-        yield return new WaitForSeconds(.5f);
-
-        if (tempVertical == 0 || tempHorizontal == 0)
+        if (canDashAttack)
         {
-            Vector3 dashWhileNoInput = vectorDirection;
-            rb.AddForce(dashWhileNoInput * dashForce);
             hasDashAttacked = true;
-        }
 
-        Vector3 dash = new Vector3(tempHorizontal, 0, tempVertical);
-        rb.velocity = dash * dashAttackForce;
-        dashAttackCollider.SetActive(true);
-        hasDashAttacked = true;
-        anim.Play("Push_Skeleton");
-        otherAnimIsPlaying = true;
-        trailRenderer.enabled = true;
-        particleSystem.Play();
+            moveVertical = 0;
+            moveHorizontal = 0;
+
+            yield return new WaitForSeconds(.2f);
+
+            if (tempVertical == 0 || tempHorizontal == 0)
+            {
+                Vector3 dashWhileNoInput = vectorDirection;
+                rb.AddForce(dashWhileNoInput * dashForce);
+            }
+
+            Vector3 dash = new Vector3(tempHorizontal, 0, tempVertical);
+            rb.velocity = dash * dashAttackForce;
+            dashAttackCollider.SetActive(true);
+            anim.Play("Push_Skeleton");
+            otherAnimIsPlaying = true;
+            trailRenderer.enabled = true;
+            particleSystem.Play();
+            canDashAttack = false;
+        }
     }
 
-    
+    IEnumerator DashAttackEndLag()
+    {
+        yield return new WaitForSeconds(.18f);
+        hasDashAttacked = false;
+    }
+
+    IEnumerator DashAttackWaitTime()
+    {
+        yield return new WaitForSeconds(4f);
+        canDashAttack = true;
+    }
+
+    IEnumerator DashWaitTime()
+    {
+        yield return new WaitForSeconds(2f);
+        canDash = true;
+    }
+
+
 }
