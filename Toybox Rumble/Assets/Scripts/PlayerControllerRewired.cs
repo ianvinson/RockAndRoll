@@ -4,6 +4,7 @@ using UnityEngine;
 using Rewired;
 using System;
 
+
 public class PlayerControllerRewired : MonoBehaviour
 {
     private Player player;
@@ -58,6 +59,9 @@ public class PlayerControllerRewired : MonoBehaviour
     public float startDashTime;
     public float startDashAttackTime;
 
+    public Coroutine coroutine;
+    public GameObject Camera;
+
 
     private void Awake()
     {
@@ -107,6 +111,7 @@ public class PlayerControllerRewired : MonoBehaviour
         //turns the dashAttackCollider off after 100 frames
         if (dashAttackCollider.activeSelf == true)
         {
+            Debug.Log(dashAttackTime + "counter");
             if (dashAttackTime <= 0)
             {
                 moveVertical = 0;
@@ -138,11 +143,11 @@ public class PlayerControllerRewired : MonoBehaviour
             }
         }
 
-        if(isThrowing == true)
+        if (isThrowing == true)
         {
             countThrowFrames++;
             currentlyThrowing = true;
-            if(countThrowFrames == 40)
+            if (countThrowFrames == 40)
             {
                 countThrowFrames = 0;
                 otherAnimIsPlaying = false;
@@ -247,12 +252,12 @@ public class PlayerControllerRewired : MonoBehaviour
         blockInput = player.GetButton("Block");
     }
 
-    private void ProcessInput()
+    public void ProcessInput()
     {
         //Processes movement
         if (!rightStickActive)
         {
-            if(moveHorizontal != 0 || moveVertical != 0)
+            if (moveHorizontal != 0 || moveVertical != 0)
             {
                 Vector3 v = new Vector3(moveHorizontal, 0, moveVertical);
                 Quaternion q = Quaternion.LookRotation(v, Vector2.up);
@@ -328,20 +333,10 @@ public class PlayerControllerRewired : MonoBehaviour
         {
             if (dashAttackCollider.activeSelf == false)
             {
-                if (moveHorizontal == 0 || moveVertical == 0)
-                {
-                    Vector3 dashWhileNoInput = vectorDirection;
-                    rb.AddForce(dashWhileNoInput * dashForce);
-                    hasDashAttacked = true;
-                }
-                Vector3 dash = new Vector3(moveHorizontal, 0, moveVertical);
-                rb.velocity = dash * dashAttackForce;
-                dashAttackCollider.SetActive(true);
-                hasDashAttacked = true;
-                anim.Play("Push_Skeleton");
-                otherAnimIsPlaying = true;
-                trailRenderer.enabled = true;
-                particleSystem.Play();
+                StartCoroutine(DashAttack());
+
+                // THIS IS THE NEW LINE I ADDED
+                dashAttackInput = false;
             }
         }
 
@@ -384,4 +379,35 @@ public class PlayerControllerRewired : MonoBehaviour
             }
         }
     }
+
+    IEnumerator DashAttack()
+    {
+        float tempVertical = moveVertical;
+        float tempHorizontal = moveHorizontal;
+
+        hasDashAttacked = true;
+
+        moveVertical = 0;
+        moveHorizontal = 0;
+
+        yield return new WaitForSeconds(.5f);
+
+        if (tempVertical == 0 || tempHorizontal == 0)
+        {
+            Vector3 dashWhileNoInput = vectorDirection;
+            rb.AddForce(dashWhileNoInput * dashForce);
+            hasDashAttacked = true;
+        }
+
+        Vector3 dash = new Vector3(tempHorizontal, 0, tempVertical);
+        rb.velocity = dash * dashAttackForce;
+        dashAttackCollider.SetActive(true);
+        hasDashAttacked = true;
+        anim.Play("Push_Skeleton");
+        otherAnimIsPlaying = true;
+        trailRenderer.enabled = true;
+        particleSystem.Play();
+    }
+
+    
 }
