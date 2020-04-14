@@ -18,7 +18,7 @@ public class PlayerControllerRewired : MonoBehaviour
     private bool rightStickActive;
     private Quaternion playerLook;
     private bool dashInput;
-    private bool dashAttackInput;
+    
     private bool hasDashed;
     private int countFramesDashCooldown;
     private bool multiplierAttackInput;
@@ -27,7 +27,6 @@ public class PlayerControllerRewired : MonoBehaviour
     private bool blockInput;
     private int countThrowFrames;
     private bool shootInput;
-    private bool hasDashAttacked;
     private bool otherAnimIsPlaying;
     private bool isThrowing;
     private bool currentlyThrowing;
@@ -65,6 +64,8 @@ public class PlayerControllerRewired : MonoBehaviour
     public GameObject Camera;
     public bool playerHitDA;
     public bool playerHit;
+    public bool hasDashAttacked;
+    public bool dashAttackInput;
 
 
     private void Awake()

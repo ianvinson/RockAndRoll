@@ -175,10 +175,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 3.235592
+  m_Radius: 3.934732
   m_Height: 19.294891
   m_Direction: 1
-  m_Center: {x: -0.10973302, y: 9.869307, z: 0.71571046}
+  m_Center: {x: -0.10973302, y: 9.869307, z: 0.016570324}
 --- !u!65 &2204705514257751248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -234,6 +234,12 @@ MonoBehaviour:
   PROJECTILEDMG: 200
   shootForce: 100
   anim: {fileID: 0}
+  startDashTime: 0
+  startDashAttackTime: 0
+  daCollisionParticles: {fileID: 0}
+  Camera: {fileID: 0}
+  playerHitDA: 0
+  playerHit: 0
 --- !u!95 &2572313344976620159
 Animator:
   serializedVersion: 3

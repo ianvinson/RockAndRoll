@@ -115,6 +115,11 @@ public class CameraScript : MonoBehaviour
                 hasHit = false;
             }
         }
+        //camera shake on the start of dash Attack
+        if (Player1.GetComponent<PlayerControllerRewired>().dashAttackInput || Player2.GetComponent<PlayerControllerRewired>().dashAttackInput)
+        {
+            cam.transform.localPosition = cam.transform.position + Random.insideUnitSphere * 30;
+        }
 
         // Snap when close enough to prevent annoying slerp behavior
         if ((cameraDestination - cam.transform.position).magnitude <= 0.05f)
