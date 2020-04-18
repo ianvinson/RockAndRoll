@@ -4966,7 +4966,7 @@ MonoBehaviour:
   dashAttackForce: 100
   dashAttackCollider: {fileID: 8520374378190317271}
   multiplierCollider: {fileID: 3329770941938025345}
-  blockCollider: {fileID: 0}
+  blockCollider: {fileID: 6714051411753385512}
   projectile: {fileID: 6686880533303172078, guid: e931383acee07c140b6ba623a8001207,
     type: 3}
   ProjectileSpawnPoint: {fileID: 4416362597805834632}

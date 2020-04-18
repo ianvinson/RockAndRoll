@@ -373,7 +373,7 @@ public class PlayerControllerRewired : MonoBehaviour
             if (blockCollider.activeSelf == false)
             {
                 blockCollider.SetActive(true);
-                anim.Play("SkeletonIdle");
+                //anim.Play("SkeletonIdle");
             }
         }
         else
