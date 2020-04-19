@@ -1,110 +1,302 @@
 fileFormatVersion: 2
 guid: 93c8f9750591c8a48ab7c86008de3d7c
-timeCreated: 1505769460
-licenseType: Store
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Body_CTRL
-    100002: Head
-    100004: HeadTop
-    100006: joint1
-    100008: L_Antenna
-    100010: L_AntennaBase
-    100012: L_AntennaTip
-    100014: L_Arm
-    100016: L_Elbow
-    100018: L_Eye
-    100020: L_EyeSocket
-    100022: L_Hand
-    100024: L_Index01
-    100026: L_Index02
-    100028: L_Index03
-    100030: L_Pinky01
-    100032: L_Pinky02
-    100034: L_Pinky03
-    100036: L_Shoulder
-    100038: L_Thumb01
-    100040: L_Thumb02
-    100042: L_Thumb03
-    100044: R_Antenna
-    100046: R_AntennaBase
-    100048: R_AntennaTip
-    100050: R_Arm
-    100052: R_Elbow
-    100054: R_Eye
-    100056: R_EyeSocket
-    100058: R_Hand
-    100060: R_Index01
-    100062: R_Index02
-    100064: R_Index03
-    100066: R_Pinky01
-    100068: R_Pinky02
-    100070: R_Pinky03
-    100072: R_Shoulder
-    100074: R_Thumb01
-    100076: R_Thumb02
-    100078: R_Thumb03
-    100080: Root
-    100082: Root_CTRL
-    100084: //RootNode
-    100086: ThrusterFront
-    100088: ThrusterFrontVents
-    100090: ThrusterReadVents
-    100092: ThrusterRear
-    400000: Body_CTRL
-    400002: Head
-    400004: HeadTop
-    400006: joint1
-    400008: L_Antenna
-    400010: L_AntennaBase
-    400012: L_AntennaTip
-    400014: L_Arm
-    400016: L_Elbow
-    400018: L_Eye
-    400020: L_EyeSocket
-    400022: L_Hand
-    400024: L_Index01
-    400026: L_Index02
-    400028: L_Index03
-    400030: L_Pinky01
-    400032: L_Pinky02
-    400034: L_Pinky03
-    400036: L_Shoulder
-    400038: L_Thumb01
-    400040: L_Thumb02
-    400042: L_Thumb03
-    400044: R_Antenna
-    400046: R_AntennaBase
-    400048: R_AntennaTip
-    400050: R_Arm
-    400052: R_Elbow
-    400054: R_Eye
-    400056: R_EyeSocket
-    400058: R_Hand
-    400060: R_Index01
-    400062: R_Index02
-    400064: R_Index03
-    400066: R_Pinky01
-    400068: R_Pinky02
-    400070: R_Pinky03
-    400072: R_Shoulder
-    400074: R_Thumb01
-    400076: R_Thumb02
-    400078: R_Thumb03
-    400080: Root
-    400082: Root_CTRL
-    400084: //RootNode
-    400086: ThrusterFront
-    400088: ThrusterFrontVents
-    400090: ThrusterReadVents
-    400092: ThrusterRear
-    7400000: Take 001
-    9500000: //RootNode
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Body_CTRL
+  - first:
+      1: 100002
+    second: Head
+  - first:
+      1: 100004
+    second: HeadTop
+  - first:
+      1: 100006
+    second: joint1
+  - first:
+      1: 100008
+    second: L_Antenna
+  - first:
+      1: 100010
+    second: L_AntennaBase
+  - first:
+      1: 100012
+    second: L_AntennaTip
+  - first:
+      1: 100014
+    second: L_Arm
+  - first:
+      1: 100016
+    second: L_Elbow
+  - first:
+      1: 100018
+    second: L_Eye
+  - first:
+      1: 100020
+    second: L_EyeSocket
+  - first:
+      1: 100022
+    second: L_Hand
+  - first:
+      1: 100024
+    second: L_Index01
+  - first:
+      1: 100026
+    second: L_Index02
+  - first:
+      1: 100028
+    second: L_Index03
+  - first:
+      1: 100030
+    second: L_Pinky01
+  - first:
+      1: 100032
+    second: L_Pinky02
+  - first:
+      1: 100034
+    second: L_Pinky03
+  - first:
+      1: 100036
+    second: L_Shoulder
+  - first:
+      1: 100038
+    second: L_Thumb01
+  - first:
+      1: 100040
+    second: L_Thumb02
+  - first:
+      1: 100042
+    second: L_Thumb03
+  - first:
+      1: 100044
+    second: R_Antenna
+  - first:
+      1: 100046
+    second: R_AntennaBase
+  - first:
+      1: 100048
+    second: R_AntennaTip
+  - first:
+      1: 100050
+    second: R_Arm
+  - first:
+      1: 100052
+    second: R_Elbow
+  - first:
+      1: 100054
+    second: R_Eye
+  - first:
+      1: 100056
+    second: R_EyeSocket
+  - first:
+      1: 100058
+    second: R_Hand
+  - first:
+      1: 100060
+    second: R_Index01
+  - first:
+      1: 100062
+    second: R_Index02
+  - first:
+      1: 100064
+    second: R_Index03
+  - first:
+      1: 100066
+    second: R_Pinky01
+  - first:
+      1: 100068
+    second: R_Pinky02
+  - first:
+      1: 100070
+    second: R_Pinky03
+  - first:
+      1: 100072
+    second: R_Shoulder
+  - first:
+      1: 100074
+    second: R_Thumb01
+  - first:
+      1: 100076
+    second: R_Thumb02
+  - first:
+      1: 100078
+    second: R_Thumb03
+  - first:
+      1: 100080
+    second: Root
+  - first:
+      1: 100082
+    second: Root_CTRL
+  - first:
+      1: 100084
+    second: //RootNode
+  - first:
+      1: 100086
+    second: ThrusterFront
+  - first:
+      1: 100088
+    second: ThrusterFrontVents
+  - first:
+      1: 100090
+    second: ThrusterReadVents
+  - first:
+      1: 100092
+    second: ThrusterRear
+  - first:
+      4: 400000
+    second: Body_CTRL
+  - first:
+      4: 400002
+    second: Head
+  - first:
+      4: 400004
+    second: HeadTop
+  - first:
+      4: 400006
+    second: joint1
+  - first:
+      4: 400008
+    second: L_Antenna
+  - first:
+      4: 400010
+    second: L_AntennaBase
+  - first:
+      4: 400012
+    second: L_AntennaTip
+  - first:
+      4: 400014
+    second: L_Arm
+  - first:
+      4: 400016
+    second: L_Elbow
+  - first:
+      4: 400018
+    second: L_Eye
+  - first:
+      4: 400020
+    second: L_EyeSocket
+  - first:
+      4: 400022
+    second: L_Hand
+  - first:
+      4: 400024
+    second: L_Index01
+  - first:
+      4: 400026
+    second: L_Index02
+  - first:
+      4: 400028
+    second: L_Index03
+  - first:
+      4: 400030
+    second: L_Pinky01
+  - first:
+      4: 400032
+    second: L_Pinky02
+  - first:
+      4: 400034
+    second: L_Pinky03
+  - first:
+      4: 400036
+    second: L_Shoulder
+  - first:
+      4: 400038
+    second: L_Thumb01
+  - first:
+      4: 400040
+    second: L_Thumb02
+  - first:
+      4: 400042
+    second: L_Thumb03
+  - first:
+      4: 400044
+    second: R_Antenna
+  - first:
+      4: 400046
+    second: R_AntennaBase
+  - first:
+      4: 400048
+    second: R_AntennaTip
+  - first:
+      4: 400050
+    second: R_Arm
+  - first:
+      4: 400052
+    second: R_Elbow
+  - first:
+      4: 400054
+    second: R_Eye
+  - first:
+      4: 400056
+    second: R_EyeSocket
+  - first:
+      4: 400058
+    second: R_Hand
+  - first:
+      4: 400060
+    second: R_Index01
+  - first:
+      4: 400062
+    second: R_Index02
+  - first:
+      4: 400064
+    second: R_Index03
+  - first:
+      4: 400066
+    second: R_Pinky01
+  - first:
+      4: 400068
+    second: R_Pinky02
+  - first:
+      4: 400070
+    second: R_Pinky03
+  - first:
+      4: 400072
+    second: R_Shoulder
+  - first:
+      4: 400074
+    second: R_Thumb01
+  - first:
+      4: 400076
+    second: R_Thumb02
+  - first:
+      4: 400078
+    second: R_Thumb03
+  - first:
+      4: 400080
+    second: Root
+  - first:
+      4: 400082
+    second: Root_CTRL
+  - first:
+      4: 400084
+    second: //RootNode
+  - first:
+      4: 400086
+    second: ThrusterFront
+  - first:
+      4: 400088
+    second: ThrusterFrontVents
+  - first:
+      4: 400090
+    second: ThrusterReadVents
+  - first:
+      4: 400092
+    second: ThrusterRear
+  - first:
+      74: 7400000
+    second: Droid_Idle
+  - first:
+      95: 9500000
+    second: //RootNode
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -117,16 +309,20 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Droid_Idle
       takeName: Take 001
+      internalID: 0
       firstFrame: 1
       lastFrame: 120
       wrapMode: 0
@@ -252,13 +448,23 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -268,10 +474,15 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -281,8 +492,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

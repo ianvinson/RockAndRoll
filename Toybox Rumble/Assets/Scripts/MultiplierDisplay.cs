@@ -11,6 +11,13 @@ public class MultiplierDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        multiplierText.text = player.GetComponent<PlayerControllerRewired>().multiplier.ToString() + "*";
+        if (player.gameObject.name == "Robot")
+        {
+            multiplierText.text = player.GetComponent<RobotControllerRewired>().multiplier.ToString() + "*";
+        }
+        else
+        {
+            multiplierText.text = player.GetComponent<SkeletonControllerRewired>().multiplier.ToString() + "*";
+        }
     }
 }

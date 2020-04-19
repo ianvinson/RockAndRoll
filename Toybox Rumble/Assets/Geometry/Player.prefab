@@ -4856,13 +4856,11 @@ GameObject:
   - component: {fileID: 5177858267061071419}
   - component: {fileID: 4163888688600095454}
   - component: {fileID: 6951963923285510249}
-  - component: {fileID: 2204705514257751248}
-  - component: {fileID: 2645456624646876316}
-  - component: {fileID: 8454498180447243394}
   - component: {fileID: 2572313344976620159}
   - component: {fileID: 1317032713}
   - component: {fileID: 1317032711}
   - component: {fileID: 1317032712}
+  - component: {fileID: 580289653457963942}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4919,69 +4917,6 @@ CapsuleCollider:
   m_Height: 19.294891
   m_Direction: 1
   m_Center: {x: -0.10973302, y: 9.869307, z: 0.016570324}
---- !u!65 &2204705514257751248
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8178584691912760360}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12.297091, y: 2.2350743, z: 1}
-  m_Center: {x: 5.6485476, y: 13.530484, z: 0}
---- !u!65 &2645456624646876316
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8178584691912760360}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12.253708, y: 2.9393725, z: 1}
-  m_Center: {x: -5.626854, y: 13.352163, z: 0}
---- !u!114 &8454498180447243394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8178584691912760360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23af75d070f0cbe4480a7d118bdc278c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  multiplier: 0
-  playerId: 0
-  playerOtherId: 1
-  moveSpeed: 25
-  rotateSpeed: 10
-  dashForce: 60
-  dashAttackForce: 100
-  dashAttackCollider: {fileID: 8520374378190317271}
-  multiplierCollider: {fileID: 3329770941938025345}
-  blockCollider: {fileID: 6714051411753385512}
-  projectile: {fileID: 6686880533303172078, guid: e931383acee07c140b6ba623a8001207,
-    type: 3}
-  ProjectileSpawnPoint: {fileID: 4416362597805834632}
-  MULTIPLIERDMG: 30
-  PROJECTILEDMG: 17
-  shootForce: 100
-  anim: {fileID: 0}
-  startDashTime: 0.15
-  startDashAttackTime: 0.15
-  daCollisionParticles: {fileID: 0}
-  Camera: {fileID: 0}
-  playerHitDA: 0
-  playerHit: 0
-  hasDashAttacked: 0
-  dashAttackInput: 0
 --- !u!95 &2572313344976620159
 Animator:
   serializedVersion: 3
@@ -9876,6 +9811,43 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &580289653457963942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8178584691912760360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1def9aacad81154fa94937ea310e97d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 0
+  playerId: 0
+  playerOtherId: 1
+  moveSpeed: 25
+  rotateSpeed: 10
+  dashForce: 60
+  dashAttackForce: 100
+  dashAttackCollider: {fileID: 8520374378190317271}
+  multiplierCollider: {fileID: 3329770941938025345}
+  blockCollider: {fileID: 6714051411753385512}
+  projectile: {fileID: 6686880533303172078, guid: e931383acee07c140b6ba623a8001207,
+    type: 3}
+  ProjectileSpawnPoint: {fileID: 4416362597805834632}
+  MULTIPLIERDMG: 30
+  PROJECTILEDMG: 17
+  shootForce: 100
+  anim: {fileID: 0}
+  startDashTime: 0.15
+  startDashAttackTime: 0.15
+  daCollisionParticles: {fileID: 0}
+  Camera: {fileID: 0}
+  playerHitDA: 0
+  playerHit: 0
+  hasDashAttacked: 0
+  dashAttackInput: 0
 --- !u!1001 &2611320998507550714
 PrefabInstance:
   m_ObjectHideFlags: 0
