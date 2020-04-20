@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public GameObject Player1;
-    public GameObject Player2;
+    public GameObject Skeleton;
+    public GameObject Robot;
     public Camera thisCam;
     public float shakeAmountHit;
     public float shakeAmountDAHit;
@@ -23,7 +23,7 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FixedCameraFollowSmooth(thisCam, Player1.transform, Player2.transform);
+        FixedCameraFollowSmooth(thisCam, Skeleton.transform, Robot.transform);
         if (hasHit)
         {
             cameraShakeLast -= Time.deltaTime;
@@ -71,25 +71,25 @@ public class CameraScript : MonoBehaviour
         cam.transform.position = Vector3.Slerp(cam.transform.position, cameraDestination, followTimeDelta);
 
         //if either player is hit, camera shake
-        if(Player1.GetComponent<PlayerControllerRewired>().playerHit || Player2.GetComponent<PlayerControllerRewired>().playerHit)
+        if(Skeleton.GetComponent<SkeletonControllerRewired>().playerHit || Robot.GetComponent<RobotControllerRewired>().playerHit)
         {
             hasHit = true;
             cam.transform.localPosition = cam.transform.position + Random.insideUnitSphere * shakeAmountHit;
             if (cameraShakeLast <= 0)
             {
-                Player1.GetComponent<PlayerControllerRewired>().playerHit = false;
-                Player2.GetComponent<PlayerControllerRewired>().playerHit = false;
+                Skeleton.GetComponent<SkeletonControllerRewired>().playerHit = false;
+                Robot.GetComponent<RobotControllerRewired>().playerHit = false;
                 cameraShakeLast = cameraShakeLastStart;
                 hasHit = false;
             }
         }
         //if either player is hit with a dash attack, hella screen shake
-        if (Player1.GetComponent<PlayerControllerRewired>().playerHitDA || Player2.GetComponent<PlayerControllerRewired>().playerHitDA)
+        if (Skeleton.GetComponent<SkeletonControllerRewired>().playerHitDA || Robot.GetComponent<RobotControllerRewired>().playerHitDA)
         {
             hasHit = true;
-            if (Player1.GetComponent<PlayerControllerRewired>().playerHitDA)
+            if (Skeleton.GetComponent<SkeletonControllerRewired>().playerHitDA)
             {
-                float stableShakeP1 = Player1.GetComponent<PlayerControllerRewired>().multiplier / shakeAmountDAHit;
+                float stableShakeP1 = Skeleton.GetComponent<SkeletonControllerRewired>().multiplier / shakeAmountDAHit;
                 Debug.Log(stableShakeP1);
                 if (stableShakeP1 >= 150)
                 {
@@ -97,9 +97,9 @@ public class CameraScript : MonoBehaviour
                 }
                 cam.transform.localPosition = cam.transform.position + Random.insideUnitSphere * stableShakeP1;
             }
-            if(Player2.GetComponent<PlayerControllerRewired>().playerHitDA)
+            if(Robot.GetComponent<RobotControllerRewired>().playerHitDA)
             {
-                float stableShakeP2 = Player2.GetComponent<PlayerControllerRewired>().multiplier / shakeAmountDAHit;
+                float stableShakeP2 = Robot.GetComponent<RobotControllerRewired>().multiplier / shakeAmountDAHit;
                 Debug.Log(stableShakeP2);
                 if (stableShakeP2 >= 150)
                 {
@@ -109,14 +109,14 @@ public class CameraScript : MonoBehaviour
             }
             if (cameraShakeLast <= 0)
             {
-                Player1.GetComponent<PlayerControllerRewired>().playerHitDA = false;
-                Player2.GetComponent<PlayerControllerRewired>().playerHitDA = false;
+                Skeleton.GetComponent<SkeletonControllerRewired>().playerHitDA = false;
+                Robot.GetComponent<RobotControllerRewired>().playerHitDA = false;
                 cameraShakeLast = cameraShakeLastStart;
                 hasHit = false;
             }
         }
         //camera shake on the start of dash Attack
-        if (Player1.GetComponent<PlayerControllerRewired>().dashAttackInput || Player2.GetComponent<PlayerControllerRewired>().dashAttackInput)
+        if (Skeleton.GetComponent<SkeletonControllerRewired>().dashAttackInput || Robot.GetComponent<RobotControllerRewired>().dashAttackInput)
         {
             cam.transform.localPosition = cam.transform.position + Random.insideUnitSphere * 30;
         }
