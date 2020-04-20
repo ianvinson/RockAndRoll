@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraScript : MonoBehaviour
 {
@@ -13,16 +14,27 @@ public class CameraScript : MonoBehaviour
     public float cameraShakeLastStart;
     public bool hasHit;
 
+    private Scene activeScene;
+
     // Start is called before the first frame update
     void Start()
     {
-        thisCam.transform.position = new Vector3(-11.59995f, 73.31589f, -23.76174f);
+        activeScene = SceneManager.GetActiveScene();
+        if (activeScene.name == "Boat_Level")
+        {
+            thisCam.transform.position = new Vector3(-47.74153f, 30f, -7.376831f);
+        }
+        else
+        {
+            thisCam.transform.position = new Vector3(-11.59995f, 73.31589f, -23.76174f);
+        }
         cameraShakeLast = cameraShakeLastStart;
     }
 
     // Update is called once per frame
     void Update()
     {
+        activeScene = SceneManager.GetActiveScene();
         FixedCameraFollowSmooth(thisCam, Skeleton.transform, Robot.transform);
         if (hasHit)
         {
@@ -36,6 +48,10 @@ public class CameraScript : MonoBehaviour
     {
         // How many units should we keep from the players
         float zoomFactor = 3f;
+        if(activeScene.name == "Boat_Level")
+        {
+            zoomFactor = 1f;
+        }
         float followTimeDelta = .08f;
 
         // Midpoint we're after
@@ -48,17 +64,35 @@ public class CameraScript : MonoBehaviour
         Vector3 cameraDestination = midpoint - cam.transform.forward * distance * zoomFactor;
 
         //Keeps camera from zooming in too much
-        if (cameraDestination.x >= 50)
+        if (activeScene.name == "Boat_Level")
         {
-            cameraDestination.x = 50;
+            if (cameraDestination.x >= 40)
+            {
+                cameraDestination.x = 40;
+            }
+            if (cameraDestination.y <= 30)
+            {
+                cameraDestination.y = 30;
+            }
+            if (cameraDestination.z >= 45)
+            {
+                cameraDestination.z = 45;
+            }
         }
-        if (cameraDestination.y <= 40)
+        else
         {
-            cameraDestination.y = 40;
-        }
-        if (cameraDestination.z >= 55)
-        {
-            cameraDestination.z = 55;
+            if (cameraDestination.x >= 50)
+            {
+                cameraDestination.x = 50;
+            }
+            if (cameraDestination.y <= 40)
+            {
+                cameraDestination.y = 40;
+            }
+            if (cameraDestination.z >= 55)
+            {
+                cameraDestination.z = 55;
+            }
         }
 
         // Adjust ortho size if we're using one of those

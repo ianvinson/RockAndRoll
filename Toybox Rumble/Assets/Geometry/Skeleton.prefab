@@ -4862,7 +4862,7 @@ GameObject:
   - component: {fileID: 1317032712}
   - component: {fileID: 580289653457963942}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Skeleton
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10131,6 +10131,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: DashAttackCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 1531903870870464610, guid: ca9616a649e42a14db1c0fa37c3f9f03,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157334660710842679, guid: ca9616a649e42a14db1c0fa37c3f9f03,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6707471906593361106, guid: ca9616a649e42a14db1c0fa37c3f9f03,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10185,6 +10195,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707471906593361106, guid: ca9616a649e42a14db1c0fa37c3f9f03,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10.9092865
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca9616a649e42a14db1c0fa37c3f9f03, type: 3}

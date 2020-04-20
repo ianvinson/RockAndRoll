@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ResetScript : MonoBehaviour
 {
@@ -11,13 +12,28 @@ public class ResetScript : MonoBehaviour
     public GameObject P2S_1, P2S_2, P2S_3;
     public int P1StockCount = 3, P2StockCount = 3;
 
+    private Scene activeScene = SceneManager.GetActiveScene();
+
+    private void Update()
+    {
+        activeScene = SceneManager.GetActiveScene();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
             //reset position
-            Skeleton.transform.position = new Vector3(-33.7f, 13.32962f, 10.3f);
-            Robot.transform.position = new Vector3(11.3f, 13.32962f, 11f);
+            if (activeScene.name == "Boat_Level")
+            {
+                Skeleton.transform.position = new Vector3(-64.73f, 10.62f, 0.94f);
+                Robot.transform.position = new Vector3(-30.76f, 10.25f, 1.29f);
+            }
+            else
+            {
+                Skeleton.transform.position = new Vector3(-33.7f, 13.32962f, 10.3f);
+                Robot.transform.position = new Vector3(11.3f, 13.32962f, 11f);
+            }
 
             //reset dmg/multiplier
             if (other.name == "Skeleton")

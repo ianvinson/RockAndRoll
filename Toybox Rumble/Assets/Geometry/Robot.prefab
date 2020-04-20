@@ -21162,12 +21162,12 @@ PrefabInstance:
     - target: {fileID: 1531903870870464610, guid: ca9616a649e42a14db1c0fa37c3f9f03,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3157334660710842679, guid: ca9616a649e42a14db1c0fa37c3f9f03,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6707471906593361106, guid: ca9616a649e42a14db1c0fa37c3f9f03,
         type: 3}
@@ -21227,7 +21227,7 @@ PrefabInstance:
     - target: {fileID: 6707471906593361106, guid: ca9616a649e42a14db1c0fa37c3f9f03,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5266572
+      value: 0.8847841
       objectReference: {fileID: 0}
     - target: {fileID: 6707471906593361106, guid: ca9616a649e42a14db1c0fa37c3f9f03,
         type: 3}
