@@ -8,7 +8,6 @@ public class ProjectileMovement : MonoBehaviour
     public float speed = 10f;
 
     private Vector3 movementVector;
-    public GameObject bep;
 
     
     // Start is called before the first frame update
@@ -27,12 +26,6 @@ public class ProjectileMovement : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            GetComponent<MeshRenderer>().enabled = false;
-            GetComponent<SphereCollider>().enabled = false;
-            GetComponent<SphereCollider>().enabled = false;
-            bep.SetActive(true);
-            //bep.transform.position = this.gameObject.transform.position;
-            bep.GetComponent<ParticleSystem>().Play();
             GameObject.Destroy(this.gameObject);
         }
     }

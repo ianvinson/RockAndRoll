@@ -12,7 +12,7 @@ public class ResetScript : MonoBehaviour
     public GameObject P2S_1, P2S_2, P2S_3;
     public int P1StockCount = 3, P2StockCount = 3;
 
-    private Scene activeScene = SceneManager.GetActiveScene();
+    private Scene activeScene;
 
     private void Update()
     {
@@ -26,8 +26,8 @@ public class ResetScript : MonoBehaviour
             //reset position
             if (activeScene.name == "Boat_Level")
             {
-                Skeleton.transform.position = new Vector3(-64.73f, 10.62f, 0.94f);
-                Robot.transform.position = new Vector3(-30.76f, 10.25f, 1.29f);
+                Skeleton.transform.position = new Vector3(-34.5f, 13.32962f, 9.1f);
+                Robot.transform.position = new Vector3(-0.36f, 13.17f, 9.71f);
             }
             else
             {

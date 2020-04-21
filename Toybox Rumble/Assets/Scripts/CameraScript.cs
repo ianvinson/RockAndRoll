@@ -22,7 +22,7 @@ public class CameraScript : MonoBehaviour
         activeScene = SceneManager.GetActiveScene();
         if (activeScene.name == "Boat_Level")
         {
-            thisCam.transform.position = new Vector3(-47.74153f, 30f, -7.376831f);
+            thisCam.transform.position = new Vector3(-17.42999f, 30f, 0.8682327f);
         }
         else
         {
@@ -50,7 +50,7 @@ public class CameraScript : MonoBehaviour
         float zoomFactor = 3f;
         if(activeScene.name == "Boat_Level")
         {
-            zoomFactor = 1f;
+            zoomFactor = 2f;
         }
         float followTimeDelta = .08f;
 
@@ -66,17 +66,17 @@ public class CameraScript : MonoBehaviour
         //Keeps camera from zooming in too much
         if (activeScene.name == "Boat_Level")
         {
-            if (cameraDestination.x >= 40)
+            if (cameraDestination.x >= 30)
             {
-                cameraDestination.x = 40;
+                cameraDestination.x = 30;
             }
-            if (cameraDestination.y <= 30)
+            if (cameraDestination.y <= 20)
             {
-                cameraDestination.y = 30;
+                cameraDestination.y = 20;
             }
-            if (cameraDestination.z >= 45)
+            if (cameraDestination.z >= 35)
             {
-                cameraDestination.z = 45;
+                cameraDestination.z = 35;
             }
         }
         else

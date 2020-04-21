@@ -71,8 +71,8 @@ public class SkeletonControllerRewired : MonoBehaviour
     private void Awake()
     {
         //get Rewired Player Object for this player
-        player = ReInput.players.GetPlayer(playerId);
-        playerOther = ReInput.players.GetPlayer(playerOtherId);
+        player = ReInput.players.GetPlayer(DeterminePlayerCharacter.getSkeletonNum());
+        playerOther = ReInput.players.GetPlayer(DeterminePlayerCharacter.getRobotNum());
         //get the Rigidbody
         rb = GetComponent<Rigidbody>();
         //get the CharacterController

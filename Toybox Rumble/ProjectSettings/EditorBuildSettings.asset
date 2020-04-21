@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Character Selection.unity
     guid: 4e56a9e795e629145adc41efb35542cc
   - enabled: 1
-    path: Assets/Scenes/Playground.unity
+    path: Assets/Scenes/Lava_Level.unity
     guid: d77e2fc83b194f440aa2dcae9c144541
+  - enabled: 1
+    path: Assets/Scenes/Boat_Level.unity
+    guid: 712bdf4ded8c232408a1ec1bab932965
+  - enabled: 1
+    path: Assets/Scenes/Options.unity
+    guid: 228259c1cf90d494198f785d4776fd9f
   m_configObjects: {}
