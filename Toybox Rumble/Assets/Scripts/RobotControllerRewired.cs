@@ -141,30 +141,30 @@ public class RobotControllerRewired : MonoBehaviour
         }
 
         //turns the multiplierCollider off after 15 frames
-        if (multiplierCollider.activeSelf == true)
-        {
-            countFramesMultiplier++;
-            if (countFramesMultiplier == 18)
-            {
-                multiplierCollider.SetActive(false);
-                countFramesMultiplier = 0;
-                Debug.Log(">Melee READY\t" + multiplierCollider.activeSelf);
-                otherAnimIsPlaying = false;
-            }
-        }
+        //if (multiplierCollider.activeSelf == true)
+        //{
+        //    countFramesMultiplier++;
+        //    if (countFramesMultiplier == 18)
+        //    {
+        //        multiplierCollider.SetActive(false);
+        //        countFramesMultiplier = 0;
+        //        Debug.Log(">Melee READY\t" + multiplierCollider.activeSelf);
+        //        otherAnimIsPlaying = false;
+        //    }
+        //}
 
-        if (isThrowing == true)
-        {
-            countThrowFrames++;
-            currentlyThrowing = true;
-            if (countThrowFrames == 20)
-            {
-                countThrowFrames = 0;
-                otherAnimIsPlaying = false;
-                isThrowing = false;
-                currentlyThrowing = false;
-            }
-        }
+        //if (isThrowing == true)
+        //{
+        //    countThrowFrames++;
+        //    currentlyThrowing = true;
+        //    if (countThrowFrames == 20)
+        //    {
+        //        countThrowFrames = 0;
+        //        otherAnimIsPlaying = false;
+        //        isThrowing = false;
+        //        currentlyThrowing = false;
+        //    }
+        //}
 
         //determines where to look and why
         if (Input.GetAxis("HorizontalRight") >= -.19 && Input.GetAxis("HorizontalRight") <= .19
@@ -361,9 +361,11 @@ public class RobotControllerRewired : MonoBehaviour
         {
             if (multiplierCollider.activeSelf == false)
             {
-                multiplierCollider.SetActive(true);
-                anim.Play("Droid_Punch");
-                otherAnimIsPlaying = true;
+                //multiplierCollider.SetActive(true);
+                //anim.Play("Droid_Punch");
+                //otherAnimIsPlaying = true;
+
+                StartCoroutine(PlayMultiplierAttack());
             }
         }
 
@@ -373,6 +375,8 @@ public class RobotControllerRewired : MonoBehaviour
             if (blockCollider.activeSelf == false)
             {
                 blockCollider.SetActive(true);
+                otherAnimIsPlaying = true;
+                anim.Play("Droid_Idle");
                 //anim.Play("Droid_Block");
             }
         }
@@ -381,6 +385,7 @@ public class RobotControllerRewired : MonoBehaviour
             if (blockCollider.activeSelf == true)
             {
                 blockCollider.SetActive(false);
+                otherAnimIsPlaying = false;
             }
         }
 
@@ -390,9 +395,11 @@ public class RobotControllerRewired : MonoBehaviour
             if (shootInput)
             {
                 //anim.Play("Droid_Throw");
-                otherAnimIsPlaying = true;
-                isThrowing = true;
-                Instantiate(projectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
+                //otherAnimIsPlaying = true;
+                //isThrowing = true;
+                //Instantiate(projectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
+
+                StartCoroutine(PlayThrowProjectile());
             }
         }
     }
@@ -476,5 +483,29 @@ public class RobotControllerRewired : MonoBehaviour
         anim.Play("Droid_Dash");
         yield return new WaitForSeconds(1.066f);
         otherAnimIsPlaying = false;
+    }
+
+    IEnumerator PlayMultiplierAttack()
+    {
+        otherAnimIsPlaying = true;
+        anim.Play("Droid_Punch");
+        yield return new WaitForSeconds(.1f);
+        multiplierCollider.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        multiplierCollider.SetActive(false);
+        otherAnimIsPlaying = false;
+    }
+
+    IEnumerator PlayThrowProjectile()
+    {
+        currentlyThrowing = true;
+        otherAnimIsPlaying = true;
+        //anim.Play("Droid_Throw");
+        yield return new WaitForSeconds(.3f);
+        Instantiate(projectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
+        yield return new WaitForSeconds(.33f);
+        otherAnimIsPlaying = false;
+        isThrowing = false;
+        currentlyThrowing = false;
     }
 }

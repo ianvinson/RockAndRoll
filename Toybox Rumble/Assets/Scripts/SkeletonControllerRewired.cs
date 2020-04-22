@@ -41,20 +41,20 @@ public class SkeletonControllerRewired : MonoBehaviour
     //Gameplay Stuff
     public int multiplier;
 
-    public int playerId = 0;
-    public int playerOtherId = 1;
+    public int playerId;
+    public int playerOtherId;
     public float moveSpeed;
-    public float rotateSpeed = 10.0f;
-    public float dashForce = 1500f;
-    public float dashAttackForce = 2000f;
+    public float rotateSpeed;
+    public float dashForce;
+    public float dashAttackForce;
     public GameObject dashAttackCollider;
     public GameObject multiplierCollider;
     public GameObject blockCollider;
     public GameObject projectile;
     public GameObject ProjectileSpawnPoint;
-    public int MULTIPLIERDMG = 200;
-    public int PROJECTILEDMG = 200;
-    public float shootForce = 5000f;
+    public int MULTIPLIERDMG;
+    public int PROJECTILEDMG;
+    public float shootForce;
     public Animator anim;
     public float startDashTime;
     public float startDashAttackTime;
@@ -106,7 +106,7 @@ public class SkeletonControllerRewired : MonoBehaviour
                 moveHorizontal = 0;
                 dashTime = startDashTime;
                 rb.velocity = Vector3.zero;
-                otherAnimIsPlaying = false;
+                //otherAnimIsPlaying = false;
                 hasDashed = false;
                 trailRenderer.enabled = false;
                 StartCoroutine(DashWaitTime());
@@ -129,7 +129,7 @@ public class SkeletonControllerRewired : MonoBehaviour
                 rb.velocity = Vector3.zero;
                 dashAttackCollider.SetActive(false);
                 Debug.Log(">DA READY\t" + dashAttackCollider.activeSelf);
-                otherAnimIsPlaying = false;
+                //otherAnimIsPlaying = false;
                 trailRenderer.enabled = false;
                 StartCoroutine(DashAttackEndLag());
                 StartCoroutine(DashAttackWaitTime());
@@ -141,30 +141,30 @@ public class SkeletonControllerRewired : MonoBehaviour
         }
 
         //turns the multiplierCollider off after 15 frames
-        if (multiplierCollider.activeSelf == true)
-        {
-            countFramesMultiplier++;
-            if (countFramesMultiplier == 18)
-            {
-                multiplierCollider.SetActive(false);
-                countFramesMultiplier = 0;
-                Debug.Log(">Melee READY\t" + multiplierCollider.activeSelf);
-                otherAnimIsPlaying = false;
-            }
-        }
+        //if (multiplierCollider.activeSelf == true)
+        //{
+        //    countFramesMultiplier++;
+        //    if (countFramesMultiplier == 18)
+        //    {
+        //        multiplierCollider.SetActive(false);
+        //        countFramesMultiplier = 0;
+        //        Debug.Log(">Melee READY\t" + multiplierCollider.activeSelf);
+        //        otherAnimIsPlaying = false;
+        //    }
+        //}
 
-        if (isThrowing == true)
-        {
-            countThrowFrames++;
-            currentlyThrowing = true;
-            if (countThrowFrames == 20)
-            {
-                countThrowFrames = 0;
-                otherAnimIsPlaying = false;
-                isThrowing = false;
-                currentlyThrowing = false;
-            }
-        }
+        //if (isThrowing == true)
+        //{
+        //    countThrowFrames++;
+        //    currentlyThrowing = true;
+        //    if (countThrowFrames == 20)
+        //    {
+        //        countThrowFrames = 0;
+        //        otherAnimIsPlaying = false;
+        //        isThrowing = false;
+        //        currentlyThrowing = false;
+        //    }
+        //}
 
         //determines where to look and why
         if (Input.GetAxis("HorizontalRight") >= -.19 && Input.GetAxis("HorizontalRight") <= .19
@@ -320,6 +320,8 @@ public class SkeletonControllerRewired : MonoBehaviour
             {
                 if (dashInput)
                 {
+                    StartCoroutine(PlayDashAnimation());
+
                     if (vectorDirection.x == 0 && vectorDirection.z == 0)
                     {
                         Vector3 dashWhileNoInput = this.gameObject.transform.forward;
@@ -338,8 +340,8 @@ public class SkeletonControllerRewired : MonoBehaviour
                     hasDashed = true;
                     canDash = false;
                     trailRenderer.enabled = true;
-                    anim.Play("Dodge_Skeleton");
-                    otherAnimIsPlaying = true;
+                    //anim.Play("Dodge_Skeleton");
+                    //otherAnimIsPlaying = true;
                 }
             }
         }
@@ -361,9 +363,11 @@ public class SkeletonControllerRewired : MonoBehaviour
         {
             if (multiplierCollider.activeSelf == false)
             {
-                multiplierCollider.SetActive(true);
-                anim.Play("Punch_Skeleton");
-                otherAnimIsPlaying = true;
+                //multiplierCollider.SetActive(true);
+                //anim.Play("Punch_Skeleton");
+                //otherAnimIsPlaying = true;
+
+                StartCoroutine(PlayMultiplierAttack());
             }
         }
 
@@ -373,7 +377,8 @@ public class SkeletonControllerRewired : MonoBehaviour
             if (blockCollider.activeSelf == false)
             {
                 blockCollider.SetActive(true);
-                //anim.Play("SkeletonIdle");
+                otherAnimIsPlaying = true;
+                anim.Play("SkeletonIdle");
             }
         }
         else
@@ -381,6 +386,7 @@ public class SkeletonControllerRewired : MonoBehaviour
             if (blockCollider.activeSelf == true)
             {
                 blockCollider.SetActive(false);
+                otherAnimIsPlaying = false;
             }
         }
 
@@ -389,10 +395,12 @@ public class SkeletonControllerRewired : MonoBehaviour
         {
             if (shootInput)
             {
-                anim.Play("Throw_Skeleton");
-                otherAnimIsPlaying = true;
-                isThrowing = true;
-                Instantiate(projectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
+                //anim.Play("Throw_Skeleton");
+                //otherAnimIsPlaying = true;
+                //isThrowing = true;
+                //Instantiate(projectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
+
+                StartCoroutine(PlayThrowProjectile());
             }
         }
     }
@@ -409,7 +417,9 @@ public class SkeletonControllerRewired : MonoBehaviour
             moveVertical = 0;
             moveHorizontal = 0;
 
-            yield return new WaitForSeconds(.2f);
+            StartCoroutine(PlayDashAttackAnimation());
+
+            yield return new WaitForSeconds(.5f);
 
             if (vectorDirection.x == 0 && vectorDirection.z == 0)
             {
@@ -427,8 +437,6 @@ public class SkeletonControllerRewired : MonoBehaviour
                 rb.velocity = dash * dashAttackForce;
             }
             dashAttackCollider.SetActive(true);
-            anim.Play("Push_Skeleton");
-            otherAnimIsPlaying = true;
             trailRenderer.enabled = true;
             particleSystem.Play();
             canDashAttack = false;
@@ -437,19 +445,19 @@ public class SkeletonControllerRewired : MonoBehaviour
 
     IEnumerator DashAttackEndLag()
     {
-        yield return new WaitForSeconds(.18f);
+        yield return new WaitForSeconds(.5f);
         hasDashAttacked = false;
     }
 
     IEnumerator DashAttackWaitTime()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(.1f);
         canDashAttack = true;
     }
 
     IEnumerator DashWaitTime()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.85f);
         canDash = true;
     }
 
@@ -462,4 +470,43 @@ public class SkeletonControllerRewired : MonoBehaviour
         daCollisionParticles.SetActive(false);
     }
 
+    IEnumerator PlayDashAnimation()
+    {
+        otherAnimIsPlaying = true;
+        anim.Play("Dodge_Skeleton");
+        yield return new WaitForSeconds(.5f);
+        otherAnimIsPlaying = false;
+    }
+
+    IEnumerator PlayDashAttackAnimation()
+    {
+        otherAnimIsPlaying = true;
+        anim.Play("Push_Skeleton");
+        yield return new WaitForSeconds(1.066f);
+        otherAnimIsPlaying = false;
+    }
+
+    IEnumerator PlayMultiplierAttack()
+    {
+        otherAnimIsPlaying = true;
+        anim.Play("Punch_Skeleton");
+        yield return new WaitForSeconds(.1f);
+        multiplierCollider.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        multiplierCollider.SetActive(false);
+        otherAnimIsPlaying = false;
+    }
+
+    IEnumerator PlayThrowProjectile()
+    {
+        currentlyThrowing = true;
+        otherAnimIsPlaying = true;
+        anim.Play("Throw_Skeleton");
+        yield return new WaitForSeconds(.3f);
+        Instantiate(projectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
+        yield return new WaitForSeconds(.33f);
+        otherAnimIsPlaying = false;
+        isThrowing = false;
+        currentlyThrowing = false;
+    }
 }
