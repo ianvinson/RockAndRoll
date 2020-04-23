@@ -281,6 +281,7 @@ public class RobotControllerRewired : MonoBehaviour
                 if (!otherAnimIsPlaying)
                 {
                     anim.Play("Droid_Walk");
+                    //anim.Play("Droid_Walk", 9, 1.2f);
                 }
             }
             Vector3 newPosition = new Vector3(moveHorizontal, 0, moveVertical);
@@ -376,8 +377,7 @@ public class RobotControllerRewired : MonoBehaviour
             {
                 blockCollider.SetActive(true);
                 otherAnimIsPlaying = true;
-                anim.Play("Droid_Idle");
-                //anim.Play("Droid_Block");
+                anim.Play("Droid_Block");
             }
         }
         else
@@ -500,7 +500,7 @@ public class RobotControllerRewired : MonoBehaviour
     {
         currentlyThrowing = true;
         otherAnimIsPlaying = true;
-        //anim.Play("Droid_Throw");
+        anim.Play("Droid_Throw");
         yield return new WaitForSeconds(.3f);
         Instantiate(projectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
         yield return new WaitForSeconds(.33f);

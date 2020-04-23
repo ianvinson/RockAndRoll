@@ -842,6 +842,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a4265a161494655498b0fa1b58885080, type: 2}
+    - target: {fileID: 6714051411753385512, guid: 63c4c8588f304644ebc12799704e7df7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6749586809268524399, guid: 63c4c8588f304644ebc12799704e7df7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -941,6 +946,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9175171233501332127, guid: 63c4c8588f304644ebc12799704e7df7,
+        type: 3}
+      propertyPath: ShapeModule.donutRadius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9175171233501332127, guid: 63c4c8588f304644ebc12799704e7df7,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9175171233501332127, guid: 63c4c8588f304644ebc12799704e7df7,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9175171233501332127, guid: 63c4c8588f304644ebc12799704e7df7,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63c4c8588f304644ebc12799704e7df7, type: 3}
@@ -5915,7 +5940,7 @@ PrefabInstance:
     - target: {fileID: 3532473606461668925, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3793981401979770265, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
         type: 3}
@@ -5957,6 +5982,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277819593875954573, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277819593875954573, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
+        type: 3}
+      propertyPath: ShapeModule.donutRadius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277819593875954573, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 9215303325268582627, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
         type: 3}
@@ -6445,7 +6485,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
