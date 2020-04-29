@@ -184,7 +184,7 @@ public class PlayerControllerRewired : MonoBehaviour
             float moveHorizontalPO = playerOther.GetAxis("MoveHorizontal");
             float moveVerticalPO = playerOther.GetAxis("MoveVertical");
             Vector3 vectorOfEnemy = new Vector3(moveHorizontalPO, 0, moveVerticalPO);
-            rb.AddForce(vectorOfEnemy * multiplier * 1.25f);
+            rb.AddForce(vectorOfEnemy * multiplier * multiplier * 100_000_000f);
             playerHitDA = true;
             StartCoroutine(dashAttackCollisionParticles());
         }

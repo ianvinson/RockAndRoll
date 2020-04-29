@@ -184,7 +184,14 @@ public class RobotControllerRewired : MonoBehaviour
             float moveHorizontalPO = playerOther.GetAxis("MoveHorizontal");
             float moveVerticalPO = playerOther.GetAxis("MoveVertical");
             Vector3 vectorOfEnemy = new Vector3(moveHorizontalPO, 0, moveVerticalPO);
-            rb.AddForce(vectorOfEnemy * multiplier * 1.25f);
+            if (multiplier >= 1000)
+            {
+                rb.AddForce(vectorOfEnemy * 1000 * (1000 / 200));
+            }
+            else
+            {
+                rb.AddForce(vectorOfEnemy * multiplier * (multiplier / 200));
+            }
             playerHitDA = true;
             StartCoroutine(dashAttackCollisionParticles());
         }

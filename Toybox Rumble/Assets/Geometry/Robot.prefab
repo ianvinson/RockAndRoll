@@ -555,8 +555,8 @@ MonoBehaviour:
   projectile: {fileID: 2702491281222983592, guid: 3843c779b69b4f948a2143f85c4bbcfd,
     type: 3}
   ProjectileSpawnPoint: {fileID: 5303937412419620532}
-  MULTIPLIERDMG: 30
-  PROJECTILEDMG: 17
+  MULTIPLIERDMG: 50
+  PROJECTILEDMG: 30
   shootForce: 100
   anim: {fileID: 0}
   startDashTime: 0.15
@@ -21232,7 +21232,7 @@ PrefabInstance:
     - target: {fileID: 6707471906593361106, guid: ca9616a649e42a14db1c0fa37c3f9f03,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8847841
+      value: 0.5656602
       objectReference: {fileID: 0}
     - target: {fileID: 6707471906593361106, guid: ca9616a649e42a14db1c0fa37c3f9f03,
         type: 3}

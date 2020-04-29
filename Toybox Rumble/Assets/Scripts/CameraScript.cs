@@ -63,35 +63,47 @@ public class CameraScript : MonoBehaviour
         // Move camera a certain distance
         Vector3 cameraDestination = midpoint - cam.transform.forward * distance * zoomFactor;
 
+        //changes rotation of camera if players are close to each other
+        float currentRotation = 60;
+        if(distance >= 20)
+        {
+            currentRotation = 60;
+        }
+        else if(distance < 20)
+        {
+            currentRotation = (20 - distance) + 60;
+        }
+        cam.transform.eulerAngles = new Vector3(currentRotation, 0, 0);
+
         //Keeps camera from zooming in too much
         if (activeScene.name == "Boat_Level")
         {
-            if (cameraDestination.x >= 30)
+            if (cameraDestination.x >= 35)
             {
-                cameraDestination.x = 30;
+                cameraDestination.x = 35;
             }
-            if (cameraDestination.y <= 20)
+            if (cameraDestination.y <= 25)
             {
-                cameraDestination.y = 20;
+                cameraDestination.y = 25;
             }
-            if (cameraDestination.z >= 35)
+            if (cameraDestination.z >= 40)
             {
-                cameraDestination.z = 35;
+                cameraDestination.z = 40;
             }
         }
         else
         {
-            if (cameraDestination.x >= 50)
+            if (cameraDestination.x >= 60)
             {
-                cameraDestination.x = 50;
+                cameraDestination.x = 60;
             }
-            if (cameraDestination.y <= 40)
+            if (cameraDestination.y <= 50)
             {
-                cameraDestination.y = 40;
+                cameraDestination.y = 50;
             }
-            if (cameraDestination.z >= 55)
+            if (cameraDestination.z >= 65)
             {
-                cameraDestination.z = 55;
+                cameraDestination.z = 65;
             }
         }
 
@@ -103,9 +115,10 @@ public class CameraScript : MonoBehaviour
         }
         // You specified to use MoveTowards instead of Slerp
         cam.transform.position = Vector3.Slerp(cam.transform.position, cameraDestination, followTimeDelta);
+        //cam.transform.eulerAngles = new Vector3(70, 0, 0);
 
         //if either player is hit, camera shake
-        if(Skeleton.GetComponent<SkeletonControllerRewired>().playerHit || Robot.GetComponent<RobotControllerRewired>().playerHit)
+        if (Skeleton.GetComponent<SkeletonControllerRewired>().playerHit || Robot.GetComponent<RobotControllerRewired>().playerHit)
         {
             hasHit = true;
             cam.transform.localPosition = cam.transform.position + Random.insideUnitSphere * shakeAmountHit;

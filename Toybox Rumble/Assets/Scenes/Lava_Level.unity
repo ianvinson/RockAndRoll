@@ -133,7 +133,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20526401}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6971681227dd3af428b73a362d1633d0, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9c63da2652d4bfe4587a811574af2add, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7ec0c66c7bfd2d409367c4283f0fe51, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -634,14 +634,14 @@ RectTransform:
   m_GameObject: {fileID: 354710781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.368525, y: 0.368525, z: 1.4741}
   m_Children: []
   m_Father: {fileID: 1358818115}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -81, y: -61}
+  m_AnchoredPosition: {x: -142, y: -61}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &354710783
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.50775915, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -675,7 +675,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Lava Incoming!
+  m_Text: LAVA INCOMING!
 --- !u!222 &354710784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1112,7 +1112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: -86}
+  m_AnchoredPosition: {x: 0, y: -86}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &784857740
@@ -1133,7 +1133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9c63da2652d4bfe4587a811574af2add, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7ec0c66c7bfd2d409367c4283f0fe51, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7134,15 +7134,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224492453}
-  m_LocalRotation: {x: -0.49999964, y: 0.00000052002673, z: -0.00000024234419, w: -0.8660256}
-  m_LocalPosition: {x: -13.5, y: 70, z: -32.9}
+  m_LocalRotation: {x: -0.44852468, y: -0, z: -0, w: -0.8937705}
+  m_LocalPosition: {x: -14.6, y: 73.31589, z: -23.76174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1190629060}
   - {fileID: 851528627}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 60.000004, y: 0, z: -360}
+  m_LocalEulerAnglesHint: {x: 53.298004, y: 0, z: -360}
 --- !u!114 &1224492458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12854,6 +12854,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a4265a161494655498b0fa1b58885080, type: 2}
+    - target: {fileID: 4163888688600095454, guid: 63c4c8588f304644ebc12799704e7df7,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4204577600461788730, guid: 63c4c8588f304644ebc12799704e7df7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13141,7 +13146,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9c63da2652d4bfe4587a811574af2add, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7ec0c66c7bfd2d409367c4283f0fe51, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13870,6 +13875,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306504177809229677, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9215303325268582627, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
         type: 3}

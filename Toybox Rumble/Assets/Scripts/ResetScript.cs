@@ -26,13 +26,25 @@ public class ResetScript : MonoBehaviour
             //reset position
             if (activeScene.name == "Boat_Level")
             {
-                Skeleton.transform.position = new Vector3(-34.5f, 13.32962f, 9.1f);
-                Robot.transform.position = new Vector3(-0.36f, 13.17f, 9.71f);
+                if (other.name == "Skeleton")
+                {
+                    Skeleton.transform.position = new Vector3(-34.5f, 13.32962f, 9.1f);
+                }
+                else
+                {
+                    Robot.transform.position = new Vector3(-0.36f, 13.17f, 9.71f);
+                }
             }
             else
             {
-                Skeleton.transform.position = new Vector3(-33.7f, 13.32962f, 10.3f);
-                Robot.transform.position = new Vector3(11.3f, 13.32962f, 11f);
+                if (other.name == "Skeleton")
+                {
+                    Skeleton.transform.position = new Vector3(-35.34643f, 16.03313f, 33.32971f);
+                }
+                else
+                {
+                    Robot.transform.position = new Vector3(11.93107f, 16.32862f, -12.26073f);
+                }
             }
 
             //reset dmg/multiplier
