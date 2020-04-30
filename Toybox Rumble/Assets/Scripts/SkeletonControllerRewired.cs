@@ -37,6 +37,7 @@ public class SkeletonControllerRewired : MonoBehaviour
     private TrailRenderer trailRenderer;
     private ParticleSystem particleSystem;
     private bool canDashAttack;
+    private bool isFlinching;
 
     //Gameplay Stuff
     public int multiplier;
@@ -206,6 +207,7 @@ public class SkeletonControllerRewired : MonoBehaviour
             else
             {
                 multiplier += MULTIPLIERDMG;
+                StartCoroutine(PlayFlinch());
             }
             Debug.Log(">MULTIPLIER: " + multiplier);
             playerHit = true;
@@ -222,6 +224,7 @@ public class SkeletonControllerRewired : MonoBehaviour
             {
                 multiplier += PROJECTILEDMG;
                 Debug.Log(">PROJECTILE: " + multiplier);
+                StartCoroutine(PlayFlinch());
             }
             playerHit = true;
         }
@@ -237,69 +240,76 @@ public class SkeletonControllerRewired : MonoBehaviour
 
     private void GetInput()
     {
-        if (!blockInput)
+        if (!isFlinching)
         {
-            if (!hasDashed)
+            if (!blockInput)
             {
-                if (!hasDashAttacked)
+                if (!hasDashed)
                 {
-                    //Movement Input
-                    moveHorizontal = player.GetAxis("MoveHorizontal");
-                    moveVertical = player.GetAxis("MoveVertical");
-
-                    //Look Input
-                    lookHorizontal = player.GetAxis("LookHorizontal");
-                    lookVertical = player.GetAxis("LookVertical");
-                    if (lookHorizontal != 0 || lookVertical != 0)
+                    if (!hasDashAttacked)
                     {
-                        rightStickActive = true;
+                        //Movement Input
+                        moveHorizontal = player.GetAxis("MoveHorizontal");
+                        moveVertical = player.GetAxis("MoveVertical");
+
+                        //Look Input
+                        lookHorizontal = player.GetAxis("LookHorizontal");
+                        lookVertical = player.GetAxis("LookVertical");
+                        if (lookHorizontal != 0 || lookVertical != 0)
+                        {
+                            rightStickActive = true;
+                        }
+
+                        //Dash Input
+                        dashInput = player.GetButtonDown("Dash");
+
+                        //DashAttack Input
+                        dashAttackInput = player.GetButtonDown("DashAttack");
+
+                        //MultiplierAttack Input
+                        multiplierAttackInput = player.GetButtonDown("MultiplierAttack");
+
+                        //Shoot Input
+                        shootInput = player.GetButtonDown("Shoot");
                     }
-
-                    //Dash Input
-                    dashInput = player.GetButtonDown("Dash");
-
-                    //DashAttack Input
-                    dashAttackInput = player.GetButtonDown("DashAttack");
-
-                    //MultiplierAttack Input
-                    multiplierAttackInput = player.GetButtonDown("MultiplierAttack");
-
-                    //Shoot Input
-                    shootInput = player.GetButtonDown("Shoot");
                 }
             }
-        }
 
-        //Block Input
-        blockInput = player.GetButton("Block");
+
+            //Block Input
+            blockInput = player.GetButton("Block");
+        }
     }
 
     public void ProcessInput()
     {
-        //Processes movement
-        if (!rightStickActive)
+        if (!isFlinching)
         {
-            if (moveHorizontal != 0 || moveVertical != 0)
+            //Processes movement
+            if (!rightStickActive)
             {
-                Vector3 v = new Vector3(moveHorizontal, 0, moveVertical);
-                Quaternion q = Quaternion.LookRotation(v, Vector2.up);
-                vectorDirection = v;
-                playerLook = Quaternion.RotateTowards(q, transform.rotation, rotateSpeed * Time.deltaTime);
-                if (!otherAnimIsPlaying)
+                if (moveHorizontal != 0 || moveVertical != 0)
                 {
-                    anim.Play("Walk_Skeleton");
+                    Vector3 v = new Vector3(moveHorizontal, 0, moveVertical);
+                    Quaternion q = Quaternion.LookRotation(v, Vector2.up);
+                    vectorDirection = v;
+                    playerLook = Quaternion.RotateTowards(q, transform.rotation, rotateSpeed * Time.deltaTime);
+                    if (!otherAnimIsPlaying)
+                    {
+                        anim.Play("Walk_Skeleton");
+                    }
                 }
+                Vector3 newPosition = new Vector3(moveHorizontal, 0, moveVertical);
+                Quaternion targetRoatation = Quaternion.LookRotation(newPosition, Vector2.up);
+                transform.rotation = Quaternion.RotateTowards(targetRoatation, transform.rotation, rotateSpeed * Time.deltaTime);
             }
-            Vector3 newPosition = new Vector3(moveHorizontal, 0, moveVertical);
-            Quaternion targetRoatation = Quaternion.LookRotation(newPosition, Vector2.up);
-            transform.rotation = Quaternion.RotateTowards(targetRoatation, transform.rotation, rotateSpeed * Time.deltaTime);
+            Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical) * moveSpeed * Time.deltaTime;
+            if (blockInput)
+            {
+                movement = new Vector3(0, 0, 0);
+            }
+            rb.MovePosition(transform.position + movement);
         }
-        Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical) * moveSpeed * Time.deltaTime;
-        if (blockInput)
-        {
-            movement = new Vector3(0, 0, 0);
-        }
-        rb.MovePosition(transform.position + movement);
 
         //Process Looking
         if (rightStickActive)
@@ -515,5 +525,15 @@ public class SkeletonControllerRewired : MonoBehaviour
         otherAnimIsPlaying = false;
         isThrowing = false;
         currentlyThrowing = false;
+    }
+
+    IEnumerator PlayFlinch()
+    {
+        otherAnimIsPlaying = true;
+        isFlinching = true;
+        anim.Play("Flinch_Skeleton");
+        yield return new WaitForSeconds(.55f);
+        otherAnimIsPlaying = false;
+        isFlinching = false;
     }
 }

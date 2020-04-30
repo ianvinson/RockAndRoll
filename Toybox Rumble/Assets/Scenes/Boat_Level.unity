@@ -652,6 +652,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5554312471081750130, guid: df2810ebfb7f1044ba8b0818f4447d61,
         type: 3}
+    - target: {fileID: 580289653457963942, guid: 63c4c8588f304644ebc12799704e7df7,
+        type: 3}
+      propertyPath: MULTIPLIERDMG
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 580289653457963942, guid: 63c4c8588f304644ebc12799704e7df7,
+        type: 3}
+      propertyPath: PROJECTILEDMG
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 946538939333610412, guid: 63c4c8588f304644ebc12799704e7df7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5978,6 +5988,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 616838963414435972, guid: 281ec365f691a5f40a73097aa1d7da82,
         type: 3}
+    - target: {fileID: 3793981401979770265, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
+        type: 3}
+      propertyPath: MULTIPLIERDMG
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793981401979770265, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
+        type: 3}
+      propertyPath: PROJECTILEDMG
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5306504177809229677, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
         type: 3}
       propertyPath: m_Constraints

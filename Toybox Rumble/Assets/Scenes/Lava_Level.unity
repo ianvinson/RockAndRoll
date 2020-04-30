@@ -1271,19 +1271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb1098b1b3ac8848b98546caacdff7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Skeleton: {fileID: 1317032703}
-  Robot: {fileID: 447586229}
-  P1S_1: {fileID: 361118631}
-  P1S_2: {fileID: 299095219}
-  P1S_3: {fileID: 1150195026}
-  P2S_1: {fileID: 185966607}
-  P2S_2: {fileID: 1965312108}
-  P2S_3: {fileID: 784857738}
-  blueWins: {fileID: 55668972}
-  redWins: {fileID: 2085797800}
-  blueWinsButton: {fileID: 114627466}
-  redWinsButton: {fileID: 2127663571}
-  gameLogic: {fileID: 1790446386}
 --- !u!4 &884504255
 Transform:
   m_ObjectHideFlags: 0
@@ -12794,6 +12781,16 @@ PrefabInstance:
       propertyPath: daCollisionParticles
       value: 
       objectReference: {fileID: 1059758445}
+    - target: {fileID: 580289653457963942, guid: 63c4c8588f304644ebc12799704e7df7,
+        type: 3}
+      propertyPath: MULTIPLIERDMG
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 580289653457963942, guid: 63c4c8588f304644ebc12799704e7df7,
+        type: 3}
+      propertyPath: PROJECTILEDMG
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 946538939333610412, guid: 63c4c8588f304644ebc12799704e7df7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13870,6 +13867,16 @@ PrefabInstance:
         type: 3}
       propertyPath: playerId
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793981401979770265, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
+        type: 3}
+      propertyPath: MULTIPLIERDMG
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793981401979770265, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
+        type: 3}
+      propertyPath: PROJECTILEDMG
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5306504177809229677, guid: 6b8a7ef4262ff254ca5092c77b5df0d8,
         type: 3}
