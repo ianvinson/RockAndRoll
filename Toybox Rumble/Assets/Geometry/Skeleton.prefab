@@ -4857,10 +4857,10 @@ GameObject:
   - component: {fileID: 4163888688600095454}
   - component: {fileID: 6951963923285510249}
   - component: {fileID: 2572313344976620159}
-  - component: {fileID: 580289653457963942}
   - component: {fileID: 1317032713}
   - component: {fileID: 1317032711}
   - component: {fileID: 1317032712}
+  - component: {fileID: 580289653457963942}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Player
@@ -4913,10 +4913,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 3.311389
-  m_Height: 18.85587
+  m_Radius: 3.934732
+  m_Height: 19.294891
   m_Direction: 1
-  m_Center: {x: -0.10851452, y: 9.649784, z: -0.29287404}
+  m_Center: {x: -0.10973302, y: 9.869307, z: 0.016570324}
 --- !u!95 &2572313344976620159
 Animator:
   serializedVersion: 3
@@ -4936,43 +4936,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &580289653457963942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8178584691912760360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1def9aacad81154fa94937ea310e97d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  multiplier: 0
-  playerId: 0
-  playerOtherId: 1
-  moveSpeed: 30
-  rotateSpeed: 10
-  dashForce: 60
-  dashAttackForce: 100
-  dashAttackCollider: {fileID: 8520374378190317271}
-  multiplierCollider: {fileID: 3329770941938025345}
-  blockCollider: {fileID: 6714051411753385512}
-  projectile: {fileID: 6686880533303172078, guid: e931383acee07c140b6ba623a8001207,
-    type: 3}
-  ProjectileSpawnPoint: {fileID: 4416362597805834632}
-  MULTIPLIERDMG: 40
-  PROJECTILEDMG: 25
-  shootForce: 100
-  anim: {fileID: 0}
-  startDashTime: 0.15
-  startDashAttackTime: 0.15
-  daCollisionParticles: {fileID: 0}
-  Camera: {fileID: 0}
-  playerHitDA: 0
-  playerHit: 0
-  hasDashAttacked: 0
-  dashAttackInput: 0
 --- !u!198 &1317032713
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -9848,6 +9811,43 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &580289653457963942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8178584691912760360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1def9aacad81154fa94937ea310e97d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 0
+  playerId: 0
+  playerOtherId: 1
+  moveSpeed: 25
+  rotateSpeed: 10
+  dashForce: 60
+  dashAttackForce: 100
+  dashAttackCollider: {fileID: 8520374378190317271}
+  multiplierCollider: {fileID: 3329770941938025345}
+  blockCollider: {fileID: 6714051411753385512}
+  projectile: {fileID: 6686880533303172078, guid: e931383acee07c140b6ba623a8001207,
+    type: 3}
+  ProjectileSpawnPoint: {fileID: 4416362597805834632}
+  MULTIPLIERDMG: 50
+  PROJECTILEDMG: 30
+  shootForce: 100
+  anim: {fileID: 0}
+  startDashTime: 0.15
+  startDashAttackTime: 0.15
+  daCollisionParticles: {fileID: 0}
+  Camera: {fileID: 0}
+  playerHitDA: 0
+  playerHit: 0
+  hasDashAttacked: 0
+  dashAttackInput: 0
 --- !u!1001 &2611320998507550714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9868,17 +9868,17 @@ PrefabInstance:
     - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.3
+      value: 11.84
       objectReference: {fileID: 0}
     - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.4
+      value: 9.8
       objectReference: {fileID: 0}
     - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
         type: 3}
@@ -9922,18 +9922,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9.214437
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
-        type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.8147291
+      value: 3.5913184
       objectReference: {fileID: 0}
     - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 8.665038
+      value: 13.005288
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a74b2ca6b45c09458e8c3232a089f54, type: 3}
@@ -10135,6 +10130,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DashAttackCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531903870870464610, guid: ca9616a649e42a14db1c0fa37c3f9f03,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157334660710842679, guid: ca9616a649e42a14db1c0fa37c3f9f03,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6707471906593361106, guid: ca9616a649e42a14db1c0fa37c3f9f03,
         type: 3}

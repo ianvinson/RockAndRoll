@@ -13,11 +13,11 @@ public class MultiplierDisplay : MonoBehaviour
     {
         if (player.gameObject.name == "Robot")
         {
-            multiplierText.text = player.GetComponent<RobotControllerRewired>().multiplier.ToString() + "%";
+            multiplierText.text = player.GetComponent<RobotControllerRewired>().multiplier.ToString() + "x";
         }
         else
         {
-            multiplierText.text = player.GetComponent<SkeletonControllerRewired>().multiplier.ToString() + "%";
+            multiplierText.text = player.GetComponent<SkeletonControllerRewired>().multiplier.ToString() + "x";
         }
     }
 }
