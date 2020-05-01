@@ -18,7 +18,7 @@ public class RaiseLava : MonoBehaviour
         {
             this.gameObject.transform.Translate(Vector3.up * speed);
         }
-        if(countFrames == 2150 && hasRaised == false)
+        if(countFrames >= 2150 && hasRaised == false)
         {
             countFrames = 0;
             hasRaised = true;
@@ -27,7 +27,7 @@ public class RaiseLava : MonoBehaviour
         {
             this.gameObject.transform.Translate(Vector3.down * speed);
         }
-        if(countFrames == 450 && hasRaised == true)
+        if(countFrames >= 450 && hasRaised == true)
         {
             countFrames = 0;
             hasRaised = false;

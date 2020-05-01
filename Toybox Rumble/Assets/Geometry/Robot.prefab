@@ -526,10 +526,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.2865286
-  m_Height: 1.7531763
+  m_Radius: 0.28298834
+  m_Height: 1.6566745
   m_Direction: 1
-  m_Center: {x: 0, y: 0.82818586, z: 0.018247101}
+  m_Center: {x: -0.010805554, y: 0.7799349, z: 0.041849937}
 --- !u!114 &3793981401979770265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,7 +545,7 @@ MonoBehaviour:
   multiplier: 0
   playerId: 1
   playerOtherId: 0
-  moveSpeed: 25
+  moveSpeed: 30
   rotateSpeed: 10
   dashForce: 60
   dashAttackForce: 100
@@ -555,12 +555,12 @@ MonoBehaviour:
   projectile: {fileID: 2702491281222983592, guid: 3843c779b69b4f948a2143f85c4bbcfd,
     type: 3}
   ProjectileSpawnPoint: {fileID: 5303937412419620532}
-  MULTIPLIERDMG: 50
-  PROJECTILEDMG: 30
+  MULTIPLIERDMG: 40
+  PROJECTILEDMG: 25
   shootForce: 100
   anim: {fileID: 0}
   startDashTime: 0.15
-  startDashAttackTime: 0.15
+  startDashAttackTime: 0.166
   daCollisionParticles: {fileID: 0}
   Camera: {fileID: 0}
   playerHitDA: 0
@@ -21159,21 +21159,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DashAttackCollider
       objectReference: {fileID: 0}
-    - target: {fileID: 1531903870870464610, guid: ca9616a649e42a14db1c0fa37c3f9f03,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3157334660710842679, guid: ca9616a649e42a14db1c0fa37c3f9f03,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4336195743093829815, guid: ca9616a649e42a14db1c0fa37c3f9f03,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6707471906593361106, guid: ca9616a649e42a14db1c0fa37c3f9f03,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21270,35 +21255,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: MultiplierCollider
       objectReference: {fileID: 0}
-    - target: {fileID: 723108783511688315, guid: 6a74b2ca6b45c09458e8c3232a089f54,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3790780511523749166, guid: 6a74b2ca6b45c09458e8c3232a089f54,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3b666c0b30ffcfc4fa4317716ad315d0, type: 2}
-    - target: {fileID: 3790780511523749166, guid: 6a74b2ca6b45c09458e8c3232a089f54,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.017
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.969
+      value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.781
+      value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
         type: 3}
@@ -21342,18 +21317,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.73808646
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
+        type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.23457582
+      value: 0.12234642
       objectReference: {fileID: 0}
     - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8494733
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782593858737451211, guid: 6a74b2ca6b45c09458e8c3232a089f54,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5266572
+      value: 0.8076906
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a74b2ca6b45c09458e8c3232a089f54, type: 3}

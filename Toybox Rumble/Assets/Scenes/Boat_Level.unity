@@ -198,7 +198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -126, y: 51}
+  m_AnchoredPosition: {x: 0, y: 51}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &138754924
@@ -214,25 +214,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.8113208, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e8cb9a330818c7247bf480b2aac2dac5, type: 3}
+    m_Font: {fileID: 12800000, guid: f7cd96aea8c741e408bdde8889f762ac, type: 3}
     m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 150
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Red Wins!
+  m_Text: Player 2 Wins!
 --- !u!222 &138754925
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -566,7 +566,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -135, y: 57}
+  m_AnchoredPosition: {x: 0, y: 57}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &265124927
@@ -582,25 +582,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.05490196, g: 0.05882353, b: 0.94509804, a: 1}
+  m_Color: {r: 0, g: 0.0032829877, b: 0.745283, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e8cb9a330818c7247bf480b2aac2dac5, type: 3}
+    m_Font: {fileID: 12800000, guid: f7cd96aea8c741e408bdde8889f762ac, type: 3}
     m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 150
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Blue Wins!
+  m_Text: Player 1 Wins!
 --- !u!222 &265124928
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11421,13 +11421,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.05490196, g: 0.05882353, b: 0.94509804, a: 1}
+  m_Color: {r: 0, g: 0.0034076583, b: 0.7735849, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e8cb9a330818c7247bf480b2aac2dac5, type: 3}
+    m_Font: {fileID: 12800000, guid: f7cd96aea8c741e408bdde8889f762ac, type: 3}
     m_FontSize: 150
     m_FontStyle: 1
     m_BestFit: 0
@@ -11688,13 +11688,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.6792453, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e8cb9a330818c7247bf480b2aac2dac5, type: 3}
+    m_Font: {fileID: 12800000, guid: f7cd96aea8c741e408bdde8889f762ac, type: 3}
     m_FontSize: 150
     m_FontStyle: 1
     m_BestFit: 0
@@ -13185,8 +13185,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e8cb9a330818c7247bf480b2aac2dac5, type: 3}
-    m_FontSize: 150
+    m_Font: {fileID: 12800000, guid: f7cd96aea8c741e408bdde8889f762ac, type: 3}
+    m_FontSize: 125
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -13197,7 +13197,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Play Again?
+  m_Text: Main Menu
 --- !u!222 &1661963153
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13669,19 +13669,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e8cb9a330818c7247bf480b2aac2dac5, type: 3}
-    m_FontSize: 150
+    m_Font: {fileID: 12800000, guid: f7cd96aea8c741e408bdde8889f762ac, type: 3}
+    m_FontSize: 125
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 150
     m_Alignment: 4
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Play Again?
+  m_Text: Main Menu
 --- !u!222 &1918077767
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13886,19 +13886,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb1098b1b3ac8848b98546caacdff7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Skeleton: {fileID: 273866217}
-  Robot: {fileID: 323578528}
-  P1S_1: {fileID: 182101949}
-  P1S_2: {fileID: 952159704}
-  P1S_3: {fileID: 1339772407}
-  P2S_1: {fileID: 1847788230}
-  P2S_2: {fileID: 809417904}
-  P2S_3: {fileID: 1966073160}
-  blueWins: {fileID: 265124925}
-  redWins: {fileID: 138754922}
-  blueWinsButton: {fileID: 812678051}
-  redWinsButton: {fileID: 208602251}
-  gameLogic: {fileID: 2075112939}
 --- !u!4 &2020340780
 Transform:
   m_ObjectHideFlags: 0
