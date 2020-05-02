@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using System;
-
+using UnityEngine.Events;
 
 public class RobotControllerRewired : MonoBehaviour
 {
@@ -68,6 +68,15 @@ public class RobotControllerRewired : MonoBehaviour
     public bool playerHit;
     public bool hasDashAttacked;
     public bool dashAttackInput;
+
+    public UnityEvent PlayRobotPunchSound;
+    public UnityEvent PlayRobotOnHitSound;
+    public UnityEvent PlayRobotDefeatSound;
+    public UnityEvent PlayRobotnDashSound;
+    public UnityEvent PlayRobotDodgeSound;
+    public UnityEvent PlayRobotOnBlockSound;
+    public UnityEvent PlayRobotOnResetSound;
+    public UnityEvent PlayRobotThrowSound;
 
 
     private void Awake()
@@ -203,6 +212,7 @@ public class RobotControllerRewired : MonoBehaviour
             if (blockInput)
             {
                 multiplier += 0;
+                PlayRobotOnBlockSound.Invoke();
                 Debug.Log("Block is registered");
             }
             else
@@ -219,6 +229,7 @@ public class RobotControllerRewired : MonoBehaviour
             if (blockInput)
             {
                 multiplier += 0;
+                PlayRobotOnBlockSound.Invoke();
                 Debug.Log("Block is registered");
             }
             else
@@ -490,6 +501,7 @@ public class RobotControllerRewired : MonoBehaviour
     {
         otherAnimIsPlaying = true;
         anim.Play("Droid_Dodge");
+        PlayRobotDodgeSound.Invoke();
         yield return new WaitForSeconds(1f);
         otherAnimIsPlaying = false;
     }
@@ -498,6 +510,7 @@ public class RobotControllerRewired : MonoBehaviour
     {
         otherAnimIsPlaying = true;
         anim.Play("Droid_Dash");
+        PlayRobotnDashSound.Invoke();
         yield return new WaitForSeconds(1.066f);
         otherAnimIsPlaying = false;
     }
@@ -506,6 +519,7 @@ public class RobotControllerRewired : MonoBehaviour
     {
         otherAnimIsPlaying = true;
         anim.Play("Droid_Punch");
+        PlayRobotPunchSound.Invoke();
         yield return new WaitForSeconds(.1f);
         multiplierCollider.SetActive(true);
         yield return new WaitForSeconds(.5f);
@@ -518,6 +532,7 @@ public class RobotControllerRewired : MonoBehaviour
         currentlyThrowing = true;
         otherAnimIsPlaying = true;
         anim.Play("Droid_Throw");
+        PlayRobotThrowSound.Invoke();
         yield return new WaitForSeconds(.3f);
         Instantiate(projectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
         yield return new WaitForSeconds(.33f);
@@ -531,6 +546,7 @@ public class RobotControllerRewired : MonoBehaviour
         otherAnimIsPlaying = true;
         isFlinching = true;
         anim.Play("Droid_Flinch");
+        PlayRobotOnHitSound.Invoke();
         yield return new WaitForSeconds(.55f);
         otherAnimIsPlaying = false;
         isFlinching = false;

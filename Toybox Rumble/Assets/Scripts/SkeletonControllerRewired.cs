@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using System;
-
+using UnityEngine.Events;
 
 public class SkeletonControllerRewired : MonoBehaviour
 {
@@ -67,6 +67,15 @@ public class SkeletonControllerRewired : MonoBehaviour
     public bool playerHit;
     public bool hasDashAttacked;
     public bool dashAttackInput;
+
+    public UnityEvent PlaySkeletonPunchSound;
+    public UnityEvent PlaySkeletonOnHitSound;
+    public UnityEvent PlaySkeletonDefeatSound;
+    public UnityEvent PlaySkeletonDashSound;
+    public UnityEvent PlaySkeletonDodgeSound;
+    public UnityEvent PlaySkeletonOnBlockSound;
+    public UnityEvent PlaySkeletonOnResetSound;
+    public UnityEvent PlaySkeletonThrowSound;
 
 
     private void Awake()
@@ -202,6 +211,7 @@ public class SkeletonControllerRewired : MonoBehaviour
             if (blockInput)
             {
                 multiplier += 0;
+                PlaySkeletonOnBlockSound.Invoke();
                 Debug.Log("Block is registered");
             }
             else
@@ -218,6 +228,7 @@ public class SkeletonControllerRewired : MonoBehaviour
             if (blockInput)
             {
                 multiplier += 0;
+                PlaySkeletonOnBlockSound.Invoke();
                 Debug.Log("Block is registered");
             }
             else
@@ -491,6 +502,7 @@ public class SkeletonControllerRewired : MonoBehaviour
     {
         otherAnimIsPlaying = true;
         anim.Play("Dodge_Skeleton");
+        PlaySkeletonDodgeSound.Invoke();
         yield return new WaitForSeconds(.5f);
         otherAnimIsPlaying = false;
     }
@@ -499,6 +511,7 @@ public class SkeletonControllerRewired : MonoBehaviour
     {
         otherAnimIsPlaying = true;
         anim.Play("Push_Skeleton");
+        PlaySkeletonDashSound.Invoke();
         yield return new WaitForSeconds(1.066f);
         otherAnimIsPlaying = false;
     }
@@ -507,6 +520,7 @@ public class SkeletonControllerRewired : MonoBehaviour
     {
         otherAnimIsPlaying = true;
         anim.Play("Punch_Skeleton");
+        PlaySkeletonPunchSound.Invoke();
         yield return new WaitForSeconds(.1f);
         multiplierCollider.SetActive(true);
         yield return new WaitForSeconds(.5f);
@@ -519,6 +533,7 @@ public class SkeletonControllerRewired : MonoBehaviour
         currentlyThrowing = true;
         otherAnimIsPlaying = true;
         anim.Play("Throw_Skeleton");
+        PlaySkeletonThrowSound.Invoke();
         yield return new WaitForSeconds(.3f);
         Instantiate(projectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
         yield return new WaitForSeconds(.33f);
@@ -532,6 +547,7 @@ public class SkeletonControllerRewired : MonoBehaviour
         otherAnimIsPlaying = true;
         isFlinching = true;
         anim.Play("Flinch_Skeleton");
+        PlaySkeletonOnHitSound.Invoke();
         yield return new WaitForSeconds(.55f);
         otherAnimIsPlaying = false;
         isFlinching = false;

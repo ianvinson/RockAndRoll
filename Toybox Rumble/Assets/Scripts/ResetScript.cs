@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class ResetScript : MonoBehaviour
@@ -11,6 +12,10 @@ public class ResetScript : MonoBehaviour
     public GameObject P1S_1, P1S_2, P1S_3;
     public GameObject P2S_1, P2S_2, P2S_3;
     public int P1StockCount = 3, P2StockCount = 3;
+
+    public UnityEvent PlayResetSound;
+    public UnityEvent PlaySkeletonDefeatSound;
+    public UnityEvent PlayRobotDefeatSound;
 
     private Scene activeScene;
 
@@ -28,10 +33,14 @@ public class ResetScript : MonoBehaviour
             {
                 if (other.name == "Skeleton")
                 {
+                    PlaySkeletonDefeatSound.Invoke();
+                    PlayResetSound.Invoke();
                     Skeleton.transform.position = new Vector3(-34.5f, 13.32962f, 9.1f);
                 }
                 else
                 {
+                    PlayRobotDefeatSound.Invoke();
+                    PlayResetSound.Invoke();
                     Robot.transform.position = new Vector3(-0.36f, 13.17f, 9.71f);
                 }
             }
@@ -39,10 +48,14 @@ public class ResetScript : MonoBehaviour
             {
                 if (other.name == "Skeleton")
                 {
+                    PlaySkeletonDefeatSound.Invoke();
+                    PlayResetSound.Invoke();
                     Skeleton.transform.position = new Vector3(-35.34643f, 16.03313f, 33.32971f);
                 }
                 else
                 {
+                    PlayRobotDefeatSound.Invoke();
+                    PlayResetSound.Invoke();
                     Robot.transform.position = new Vector3(11.93107f, 16.32862f, -12.26073f);
                 }
             }
